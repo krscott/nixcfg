@@ -6,17 +6,15 @@ return {
 
     vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "Harpoon: Add File" })
     vim.keymap.set("n", "<C-;>", ui.toggle_quick_menu)
-    vim.keymap.set("n", "1", function()
-      ui.nav_file(1)
-    end)
-    vim.keymap.set("n", "2", function()
-      ui.nav_file(2)
-    end)
-    vim.keymap.set("n", "3", function()
-      ui.nav_file(3)
-    end)
-    vim.keymap.set("n", "4", function()
-      ui.nav_file(4)
-    end)
+
+    local function nav_file_fn(index)
+      return function()
+        ui.nav_file(index)
+      end
+    end
+
+    for i = 1, 9 do
+      vim.keymap.set("n", tostring(i), nav_file_fn(i))
+    end
   end,
 }

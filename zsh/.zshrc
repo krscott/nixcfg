@@ -18,7 +18,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source ~/.config/zsh/packages/powerlevel10k/powerlevel10k.zsh-theme
+if [[ -f ~/.config/zsh/packages/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  source ~/.config/zsh/packages/powerlevel10k/powerlevel10k.zsh-theme
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

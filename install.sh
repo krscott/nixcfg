@@ -6,6 +6,10 @@ shopt -s failglob
 
 cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
+function is_def {
+	type "$1" >/dev/null 2>&1
+}
+
 function link_config {
 	src="$1"
 	dst="$2"
@@ -53,11 +57,16 @@ echo "Linking config files"
 link_config nvim ~/.config/nvim
 link_config kitty ~/.config/kitty
 
-link_config zsh ~/.config/zsh
-(
-	cd zsh
-	link_config zshenv ~/.zshenv
-	get_package powerlevel10k https://github.com/romkatv/powerlevel10k.git v1.20.0
-)
+if is_def zsh; then
+	link_config zsh ~/.config/zsh
+	(
+		cd zsh
+		link_config zshenv ~/.zshenv
+		get_package powerlevel10k https://github.com/romkatv/powerlevel10k.git v1.20.0
+	)
+
+	# Change user shell to zsh
+	chsh -s $(which zsh)
+fi
 
 echo "Done"

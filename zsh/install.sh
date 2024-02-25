@@ -11,8 +11,8 @@ source ../util/install-lib.sh
 if is_def zsh; then
 	link_config . ~/.config/zsh
   link_config zshenv ~/.zshenv
-  get_package powerlevel10k https://github.com/romkatv/powerlevel10k.git v1.20.0
+  get_package zap https://github.com/zap-zsh/zap.git "1.2.1"
 
 	# Change user shell to zsh
-	chsh -s $(which zsh)
+	#chsh -s $(which zsh)
 fi

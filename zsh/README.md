@@ -1,8 +1,11 @@
 # zsh
 
-## External Programs
+## Prerequisites
 
-Programs used by zsh aliases and plugins
+It is best to have a Nerd Font installed
 
-- git
-- fztf
+## Switch default shell
+
+```bash
+chsh -s "$(which zsh)"
+```

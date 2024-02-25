@@ -5,6 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Created by Zap installer
+[ -f "$ZDOTDIR/packages/zap/zap.zsh" ] && source "$ZDOTDIR/packages/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+#plug "zap-zsh/supercharge"
+#plug "zap-zsh/zap-prompt"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "romkatv/powerlevel10k"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -15,10 +23,6 @@ bindkey -e
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-
-if [[ -f ~/.config/zsh/packages/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-  source ~/.config/zsh/packages/powerlevel10k/powerlevel10k.zsh-theme
-fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

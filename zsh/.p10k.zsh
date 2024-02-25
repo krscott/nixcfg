@@ -49,6 +49,7 @@
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
+    exitcode                  # exit code if non-zero
     context                   # user@host
     dir                       # current directory
     vcs                       # git status
@@ -197,3 +198,11 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+
+# My added prompt segments
+
+function prompt_exitcode() {
+  p10k segment -f red -t "%(?..%B%?%b)"
+}
+

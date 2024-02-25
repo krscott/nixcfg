@@ -3,15 +3,17 @@ function is_def {
 }
 
 function link_config {
-	src="$1"
+	src="$(realpath "$1")"
 	dst="$2"
-	echo "Linking $src"
-	if [ -e "$dst" ]; then
+	echo "Linking $(basename "$src")"
+	if [ -L "$dst" ] || [ -f "$dst" ]; then
+		rm "$dst"
+	elif [ -d "$dst" ]; then
 		rm -rf "$dst"
 	else
 		mkdir -p "$(dirname "$dst")"
 	fi
-	ln -s "$(pwd)/$src" "$dst"
+	ln -s "$src" "$dst"
 }
 
 function get_package {

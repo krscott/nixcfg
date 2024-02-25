@@ -16,6 +16,6 @@ echo "Linking config files"
 link_config nvim ~/.config/nvim
 link_config kitty ~/.config/kitty
 
-source zsh/install.sh
+bash zsh/install.sh
 
 echo "Done"

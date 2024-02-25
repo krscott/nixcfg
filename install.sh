@@ -13,5 +13,6 @@ link_config nvim ~/.config/nvim
 link_config kitty ~/.config/kitty
 
 bash zsh/install.sh
+bash tmux/install.sh
 
 echo "Done"

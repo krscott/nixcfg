@@ -20,11 +20,12 @@ function get_package {
 	name="$1"
 	url="$2"
 	tag="${3:-}"
+	packages_dir="${packages_dir:-packages}"
 
 	echo "Getting package $name: $url $tag"
 
-	mkdir -p packages
-	cd packages
+	mkdir -p "$packages_dir"
+	cd "$packages_dir"
 
 	if [ ! -d "$name" ]; then
 		if [ ! -z "$tag" ]; then

@@ -21,3 +21,5 @@ for i = 1, 9 do
     whichkey.register({ ["<leader>" .. i] = "which_key_ignore" })
   end
 end
+
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP Rename" })

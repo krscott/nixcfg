@@ -14,14 +14,19 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      mkSystem = configPath:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            configPath
+            inputs.home-manager.nixosModules.default
+          ];
+        };
     in
     {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./nixos/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
+      nixosConfigurations = {
+        default = mkSystem ./nixos/hosts/default/configuration.nix;
       };
     };
 }

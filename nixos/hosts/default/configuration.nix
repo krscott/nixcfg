@@ -8,22 +8,23 @@ let
 in
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix  # flake requires `--impure` option
+    ../include/core.nix
   ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "kris" = import ./home.nix;
-    }
-  }
+    };
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = defaults.boot.loader.grub.device; # e.g. "/dev/vda"
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = defaults.networking.hostname; # e.g. "nixos"
+  networking.hostName = defaults.networking.hostName; # e.g. "nixos"
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

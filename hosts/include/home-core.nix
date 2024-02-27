@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../home-modules/git.nix
+    ../../git/git.nix
   ];
 
   # Let Home Manager install and manage itself.

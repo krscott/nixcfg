@@ -26,7 +26,7 @@
     in
     {
       nixosConfigurations = {
-        default = mkSystem ./nixos/hosts/default/configuration.nix;
+        default = mkSystem ./hosts/default/configuration.nix;
       };
     };
 }

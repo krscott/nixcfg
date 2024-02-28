@@ -3,7 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      { "<C-p>", "<cmd>Telescope find_files<cr>" },
+      { "<C-p>", "<cmd>Telescope find_files find_command=rg,--hidden,--files,-g!.git<cr>" },
       {
         "<leader>ps",
         function()

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -9,8 +9,13 @@
     ../zsh/zsh.nix
   ];
 
+  nixpkgs.overlays = [
+    inputs.okay-vim.overlays.default
+  ];
+
   home.packages = with pkgs; [
     firefox
+    nvim-pkg # Added by okay-vim overlay
     (nerdfonts.override { inherit (import ../font/nerdfont.nix) fonts; })
   ];
 }

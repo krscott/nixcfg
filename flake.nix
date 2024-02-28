@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    okay-vim = {
+      url = "github:krscott/okay-vim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -25,7 +30,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit system;
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = configPath;
+          modules = [ configPath ];
         };
     in
     {

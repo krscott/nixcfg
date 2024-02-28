@@ -14,23 +14,12 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "romkatv/powerlevel10k"
 plug "zap-zsh/fzf"
 
-# Lines configured by zsh-newuser-install
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+source ~/.config/zsh/init.zsh
+
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-# Fix Home/End/Delete/Ctrl-Backspace
-# This might be different on other terminals. Use `showkey -a` to check.
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
-bindkey  "^H"     backward-kill-word

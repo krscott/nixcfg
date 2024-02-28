@@ -12,12 +12,12 @@ in
     ../include/core.nix
   ];
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "kris" = import ./home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "kris" = import ./home.nix;
+  #   };
+  # };
 
   # Bootloader.
   boot.loader.grub.enable = true;

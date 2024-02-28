@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -23,10 +23,20 @@
             inputs.home-manager.nixosModules.default
           ];
         };
+
+      mkHome = configPath:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ configPath ];
+        };
     in
     {
       nixosConfigurations = {
         default = mkSystem ./hosts/default/configuration.nix;
+      };
+
+      homeConfigurations = {
+        "kris@default" = mkHome ./hosts/default/home.nix;
       };
     };
 }

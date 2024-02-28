@@ -4,6 +4,7 @@
   imports = [
     ./core.nix
     ../git/git.nix
+    ../kitty/kitty.nix
     ../zsh/zsh.nix
   ];
 

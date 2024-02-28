@@ -23,3 +23,5 @@ for i = 1, 9 do
 end
 
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP Rename" })
+
+vim.keymap.set("n", "<C-c>", "<Esc>", { desc = "Escape" })

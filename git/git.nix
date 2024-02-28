@@ -11,10 +11,14 @@
         lol = "log --oneline --date-order";
         k = "!gitk --date-order";
         ka = "!gitk --all --date-order";
-        l = "!lazygit";
       };
     };
 
     lazygit.enable = true;
+  };
+
+  home.shellAliases = {
+    gs = "git stuats";
+    gl = "lazygit";
   };
 }

@@ -1,10 +1,8 @@
+# TODO: Delete this unused file
+
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../include/home-core.nix
-  ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [

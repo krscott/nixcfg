@@ -12,9 +12,6 @@
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-
       mkSystem = configPath:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
@@ -24,10 +21,11 @@
           ];
         };
 
-      mkHome = configPath:
+      mkHome = system: configPath:
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ configPath ];
+          inherit system;
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = configPath;
         };
     in
     {
@@ -35,8 +33,9 @@
         default = mkSystem ./hosts/default/configuration.nix;
       };
 
+      # Non-NixOS home-manager profiles
       homeConfigurations = {
-        "kris@default" = mkHome ./hosts/default/home.nix;
+        "kris@default" = mkHome "x86_64-linux" ./hosts/default/kris.nix;
       };
     };
 }

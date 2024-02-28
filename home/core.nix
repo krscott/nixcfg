@@ -1,23 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../../git/git.nix
-  ];
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "kris";
-  home.homeDirectory = "/home/kris";
-
-  home.shellAliases = {
-    ls = "ls --color=auto";
-    l = "ls -alh";
-    ll = "ls -lh";
-  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

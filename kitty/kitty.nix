@@ -4,8 +4,7 @@
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    font.name = "JetBrainsMono Nerd Font";
-    font.size = 12;
+    inherit (import ../font/nerdfont.nix) font;
     extraConfig = builtins.readFile ./kitty.conf;
   };
 }

@@ -11,6 +11,6 @@
 
   home.packages = with pkgs; [
     firefox
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { inherit (import ../font/nerdfont.nix) fonts; })
   ];
 }

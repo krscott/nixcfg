@@ -5,6 +5,7 @@
     ./core.nix
     ../git/git.nix
     ../kitty/kitty.nix
+    ../tmux/tmux.nix
     ../zsh/zsh.nix
   ];
 

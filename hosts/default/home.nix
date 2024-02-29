@@ -63,6 +63,6 @@ in
   #  /etc/profiles/per-user/kris/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "vim";
+    # EDITOR = "vim";
   };
 }

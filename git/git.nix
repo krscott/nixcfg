@@ -4,6 +4,11 @@ let
 in
 {
   programs = {
+    vim = {
+      enable = true;
+      defaultEditor = true;
+    };
+
     git = {
       enable = true;
       package = pkgs.gitFull;  # Includes gitk

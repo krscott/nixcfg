@@ -7,9 +7,20 @@
     viAlias = true;
     vimAlias = true;
 
-    extraConfig = ''
-      luafile ~/.config/nvim/lua/init.lua
-    '';
+    plugins = with pkgs.vimPlugins; [
+      vim-sensible
+      telescope-nvim
+    ];
+
+    extraPackages = with pkgs; [
+      # telescope
+      ripgrep
+      fd
+    ];
+
+    # extraConfig = ''
+    #   luafile ~/.config/nvim/lua/init.lua
+    # '';
   };
 
   xdg.configFile.nvim = {

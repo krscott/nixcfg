@@ -5,16 +5,12 @@
     ./core.nix
     ../git/git.nix
     ../kitty/kitty.nix
+    ../nvim2/nvim.nix
     ../tmux/tmux.nix
     ../zsh/zsh.nix
   ];
 
-  nixpkgs.overlays = [
-    inputs.okay-vim.overlays.default
-  ];
-
   home.packages = with pkgs; [
     firefox
-    nvim-pkg # Added by okay-vim overlay
   ];
 }

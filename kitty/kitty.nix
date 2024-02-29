@@ -3,6 +3,10 @@ let
   inherit (import ../options.nix) nerdfont;
 in
 {
+  imports = [
+    ../font/nerdfont.nix
+  ];
+
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;

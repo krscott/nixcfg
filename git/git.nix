@@ -1,11 +1,14 @@
 { pkgs, ... }:
+let
+  inherit (import ../options.nix) gitFullName gitEmail;
+in
 {
   programs = {
     git = {
       enable = true;
       package = pkgs.gitFull;  # Includes gitk
-      userName = "Kris Scott";
-      userEmail = "kscott91@gmail.com";
+      userName = gitFullName;
+      userEmail = gitEmail;
       aliases = {
         s = "status";
         lol = "log --oneline --date-order";

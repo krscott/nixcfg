@@ -4,7 +4,7 @@
 { config, pkgs, inputs, ... } @ configInputs:
 let
   defaults = import /etc/nixos/configuration.nix configInputs;
-  inherit (import ../../options.nix) mainUsername;
+  inherit (import ../../options.nix) mainUsername gitFullName;
 in
 {
   imports = [
@@ -18,7 +18,7 @@ in
   home-manager.users."${mainUsername}" = import ./home.nix;
   users.users."${mainUsername}" = {
     isNormalUser = true;
-    description = "${mainUsername}";
+    description = "${gitFullName}";
     extraGroups = [ "networkmanager" "wheel" "libvertd" ];
     shell = pkgs.zsh;
   };

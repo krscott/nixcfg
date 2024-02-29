@@ -17,6 +17,8 @@
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
+      inherit (import ./options.nix) mainUsername;
+
       mkSystem = configPath:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
@@ -40,7 +42,7 @@
 
       # Non-NixOS home-manager profiles
       homeConfigurations = {
-        "kris@default" = mkHome "x86_64-linux" ./hosts/default/kris.nix;
+        "${mainUsername}" = mkHome "x86_64-linux" ./home/main-user.nix;
       };
     };
 }

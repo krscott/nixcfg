@@ -1,11 +1,19 @@
 { config, pkgs, inputs, ... }:
 
 {
-  nixpkgs.overlays = [
-    inputs.okay-vim.overlays.default
-  ];
+  programs.neovim = {
+    enable = true;
 
-  home.packages = with pkgs; [
-    nvim-pkg # Added by okay-vim overlay
-  ];
+    viAlias = true;
+    vimAlias = true;
+
+    extraConfig = ''
+      luafile ~/.config/nvim/lua/init.lua
+    '';
+  };
+
+  xdg.configFile.nvim = {
+    source = ./config;
+    recursive = true;
+  };
 }

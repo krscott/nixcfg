@@ -16,6 +16,5 @@
   home.packages = with pkgs; [
     firefox
     nvim-pkg # Added by okay-vim overlay
-    (nerdfonts.override { inherit (import ../font/nerdfont.nix) fonts; })
   ];
 }

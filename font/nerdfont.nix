@@ -1,6 +1,9 @@
-# Options used by other configs
+{ config, pkgs, inputs, ... }:
+let
+  inherit (import ../options.nix) nerdfont;
+in
 {
-  fonts = [ "JetBrainsMono" ];
-  font.name = "JetBrainsMono Nerd Font";
-  font.size = 12;
+  home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ nerdfont ]; })
+  ];
 }

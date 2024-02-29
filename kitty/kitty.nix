@@ -1,10 +1,13 @@
 { pkgs, ... }:
-
+let
+  inherit (import ../options.nix) nerdfont;
+in
 {
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    inherit (import ../font/nerdfont.nix) font;
+    font.name = "${nerdfont} Nerd Font";
+    font.size = 12;
     extraConfig = builtins.readFile ./kitty.conf;
   };
 }

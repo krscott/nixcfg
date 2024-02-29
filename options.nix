@@ -1,3 +1,4 @@
 {
+  mainUsername = "kris";
   nerdfont = "JetBrainsMono";
 }

@@ -4,6 +4,7 @@
 { config, pkgs, inputs, ... } @ configInputs:
 let
   defaults = import /etc/nixos/configuration.nix configInputs;
+  inherit (import ../../options.nix) mainUsername;
 in
 {
   imports = [
@@ -14,10 +15,10 @@ in
   home-manager.extraSpecialArgs = { inherit inputs; };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  home-manager.users.kris = import ./kris.nix;
-  users.users.kris = {
+  home-manager.users."${mainUsername}" = import ./home.nix;
+  users.users."${mainUsername}" = {
     isNormalUser = true;
-    description = "Kris";
+    description = "${mainUsername}";
     extraGroups = [ "networkmanager" "wheel" "libvertd" ];
     shell = pkgs.zsh;
   };

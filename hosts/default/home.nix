@@ -1,11 +1,19 @@
-# TODO: Delete this unused file
-
-{ config, pkgs, ... }:
-
+{ pkgs, lib, ... }: 
+let
+  inherit (import ../../options.nix) mainUsername;
+in
 {
+  imports = [ ../../home/main-user.nix ];
+  home = {
+    username = mainUsername;
+    homeDirectory = "/home/${mainUsername}";
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    kate
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -55,6 +63,6 @@
   #  /etc/profiles/per-user/kris/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 }

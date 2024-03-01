@@ -14,6 +14,7 @@
       harpoon
       undotree
       which-key-nvim
+      vim-sleuth
 
       # File Tree
       neo-tree-nvim

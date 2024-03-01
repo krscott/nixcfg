@@ -4,7 +4,9 @@ local config_dir =
     (os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config"))
     .. "/vim"
 
+-- Colors
 opt.termguicolors = true
+opt.colorcolumn = "80"
 
 -- Indents
 opt.autoindent = true
@@ -18,6 +20,10 @@ opt.tabstop = 4
 opt.number = true
 opt.relativenumber = true
 
+-- Scroll
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+
 -- Search
 opt.incsearch = true  -- Find the next match as we type
 opt.hlsearch = true   -- Highlight searches
@@ -25,7 +31,10 @@ opt.ignorecase = true -- Ignore case when searching...
 opt.smartcase = true  -- ...unless we type a capital
 
 -- Undo
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = config_dir .. "/undodir"
-vim.opt.undofile = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = config_dir .. "/undodir"
+opt.undofile = true
+
+-- Updates
+opt.updatetime = 50

@@ -10,6 +10,9 @@
     plugins = with pkgs.vimPlugins; [
       vim-sensible
       telescope-nvim
+
+      # Theme
+      catppuccin-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -17,10 +20,6 @@
       ripgrep
       fd
     ];
-
-    # extraConfig = ''
-    #   luafile ~/.config/nvim/lua/init.lua
-    # '';
   };
 
   xdg.configFile.nvim = {

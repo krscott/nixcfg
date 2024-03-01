@@ -10,6 +10,8 @@
     plugins = with pkgs.vimPlugins; [
       vim-sensible
       telescope-nvim
+      nvim-treesitter.withAllGrammars
+      harpoon
 
       # Theme
       catppuccin-nvim

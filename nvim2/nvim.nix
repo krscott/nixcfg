@@ -16,8 +16,9 @@
       which-key-nvim
 
       # File Tree
+      neo-tree-nvim
+      #nvim-tree-lua
       nvim-web-devicons
-      nvim-tree-lua
 
       # Git
       vim-fugitive

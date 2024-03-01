@@ -13,6 +13,11 @@
       nvim-treesitter.withAllGrammars
       harpoon
       undotree
+      which-key-nvim
+
+      # File Tree
+      nvim-web-devicons
+      nvim-tree-lua
 
       # Git
       vim-fugitive

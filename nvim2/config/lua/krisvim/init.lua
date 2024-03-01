@@ -1,2 +1,2 @@
 require("krisvim.remap")
-print("hello from krisvim")
+require("krisvim.options")

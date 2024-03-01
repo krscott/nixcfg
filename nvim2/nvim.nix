@@ -37,11 +37,35 @@
     ];
 
     extraPackages = with pkgs; [
+      tree-sitter
+      nodejs
+
       # telescope-nvim
       ripgrep
       fd
       # lazygit-nvim
       lazygit
+
+      # Language Servers
+      # Bash
+      nodePackages.bash-language-server
+      # C
+      clang
+      # Lua
+      lua-language-server
+      # Nix
+      nil
+      nixpkgs-fmt
+      statix
+      # Python
+      pyright
+      black
+      # Rust
+      rust-analyzer
+      # Typescript
+      nodePackages.typescript-language-server
+      # Web (ESLint, HTML, CSS, JSON)
+      nodePackages.vscode-langservers-extracted
     ];
   };
 

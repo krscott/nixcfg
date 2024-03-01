@@ -24,6 +24,13 @@
       vim-fugitive
       lazygit-nvim
 
+      # LSP
+      lsp-zero-nvim
+      nvim-lspconfig
+      cmp-nvim-lsp
+      nvim-cmp
+      luasnip
+
       # Theme
       catppuccin-nvim
     ];

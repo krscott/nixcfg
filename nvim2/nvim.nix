@@ -12,15 +12,22 @@
       telescope-nvim
       nvim-treesitter.withAllGrammars
       harpoon
+      undotree
+
+      # Git
+      vim-fugitive
+      lazygit-nvim
 
       # Theme
       catppuccin-nvim
     ];
 
     extraPackages = with pkgs; [
-      # telescope
+      # telescope-nvim
       ripgrep
       fd
+      # lazygit-nvim
+      lazygit
     ];
   };
 

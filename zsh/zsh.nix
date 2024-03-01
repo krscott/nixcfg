@@ -25,4 +25,8 @@
       }
     ];
   };
+
+  programs.fzf = {
+    enable = true;
+  };
 }

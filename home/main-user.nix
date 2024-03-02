@@ -12,5 +12,11 @@
 
   home.packages = with pkgs; [
     firefox
+
+    # CLI tools
+    btop
+    htop
+    neofetch
+    tldr
   ];
 }

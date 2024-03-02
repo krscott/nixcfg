@@ -6,7 +6,6 @@
     extraConfig = builtins.readFile ./tmux-init.conf;
     # Note: 'sensible' plugin is included by default
     plugins = with pkgs; [
-      tmuxPlugins.sensible
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''

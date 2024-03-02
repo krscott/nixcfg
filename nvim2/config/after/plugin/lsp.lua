@@ -18,6 +18,8 @@ lsp.eslint.setup({
   end,
 })
 
+lsp.golangci_lint_ls.setup(defaults)
+lsp.gopls.setup(defaults)
 lsp.html.setup(defaults)
 lsp.jsonls.setup(defaults)
 

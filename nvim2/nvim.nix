@@ -49,6 +49,8 @@
 
       # Language Servers
       # (:help lspconfig-all)
+      # Note: Don't forget to add lsp.<lang>.setup() in `lsp.lua`!
+
       # Bash
       nodePackages.bash-language-server
       # C

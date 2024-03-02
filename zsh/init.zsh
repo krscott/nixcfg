@@ -14,3 +14,4 @@ bindkey "^[[1;5C" forward-word        # Ctrl+Right (tmux)
 
 
 alias nsh="nix-shell --command zsh -p"
+alias ndev="nix develop --command zsh"

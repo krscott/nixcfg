@@ -8,6 +8,9 @@ local config_dir =
 opt.termguicolors = true
 opt.colorcolumn = "80"
 
+-- Hide startup screen
+opt.shortmess = "I"
+
 -- Indents
 opt.autoindent = true
 opt.expandtab = true -- Use spaces instead of tabs

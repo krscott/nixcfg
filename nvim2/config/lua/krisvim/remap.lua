@@ -25,6 +25,10 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- Temporarily disable highlight
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
+vim.keymap.set("n", "<C-c>", "<cmd>noh<cr>")
+
 -- Replace word under cursor
 vim.keymap.set(
     "n",

@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  # Enable flakes
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

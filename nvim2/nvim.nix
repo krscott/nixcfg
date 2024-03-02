@@ -48,10 +48,14 @@
       lazygit
 
       # Language Servers
+      # (:help lspconfig-all)
       # Bash
       nodePackages.bash-language-server
       # C
       clang
+      # Go
+      golangci-lint-langserver
+      gopls
       # Lua
       lua-language-server
       # Nix

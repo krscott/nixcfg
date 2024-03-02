@@ -15,6 +15,7 @@
       undotree
       which-key-nvim
       vim-sleuth
+      vim-tmux-navigator
 
       # File Tree
       neo-tree-nvim

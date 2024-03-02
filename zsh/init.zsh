@@ -11,3 +11,6 @@ bindkey "^[[1;3D" backward-word       # Alt+Left (tmux)
 bindkey "^[[1;3C" forward-word        # Alt+Right (tmux)
 bindkey "^[[1;5D" backward-word       # Ctrl+Left (tmux)
 bindkey "^[[1;5C" forward-word        # Ctrl+Right (tmux)
+
+
+alias nsh="nix-shell --command zsh -p"

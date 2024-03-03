@@ -1,7 +1,7 @@
 # References system configs in /etc/nixos
 # So, flake requires `--impure` option
 
-{ config, pkgs, inputs, ... } @ configInputs:
+{ pkgs, inputs, ... } @ configInputs:
 let
   defaults = import /etc/nixos/configuration.nix configInputs;
   inherit (import ../../options.nix) mainUsername gitFullName;
@@ -24,6 +24,13 @@ in
   };
 
   programs.zsh.enable = true;
+
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;

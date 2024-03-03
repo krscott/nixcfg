@@ -12,6 +12,7 @@ in
     package = pkgs.kitty;
     font.name = "${nerdfont} Nerd Font";
     font.size = 12;
+    theme = "Catppuccin-Mocha";
     extraConfig = builtins.readFile ./kitty.conf;
   };
 }

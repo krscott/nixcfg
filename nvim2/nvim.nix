@@ -8,14 +8,14 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      vim-sensible
-      telescope-nvim
-      nvim-treesitter.withAllGrammars
       harpoon
+      nvim-treesitter.withAllGrammars
+      telescope-nvim
       undotree
-      which-key-nvim
+      vim-sensible
       vim-sleuth
       vim-tmux-navigator
+      which-key-nvim
 
       # File Tree
       neo-tree-nvim

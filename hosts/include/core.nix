@@ -1,8 +1,12 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.default
   ];
+
+  # Required for zsh completions of system packages
+  # See: home-manager programs.zsh.enableCompletion
+  environment.pathsToLink = [ "/share/zsh" ];
 
   environment.systemPackages = with pkgs; [
     git

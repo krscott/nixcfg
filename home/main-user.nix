@@ -1,22 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./core.nix
-    ../git/git.nix
+    ./sh.nix
+
     ../kitty/kitty.nix
-    ../nvim2/nvim.nix
-    ../tmux/tmux.nix
-    ../zsh/zsh.nix
   ];
 
   home.packages = with pkgs; [
     firefox
-
-    # CLI tools
-    btop
-    htop
-    neofetch
-    tldr
   ];
 }

@@ -33,7 +33,7 @@ in
   };
 
   # Enable VM auto-resize resolution
-  #services.spice-vdagentd.enable = true;
+  services.spice-vdagentd.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;

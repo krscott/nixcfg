@@ -32,6 +32,9 @@ in
     options = "--delete-older-than 30d";
   };
 
+  # Enable VM auto-resize resolution
+  #services.spice-vdagentd.enable = true;
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = defaults.boot.loader.grub.device; # e.g. "/dev/vda"

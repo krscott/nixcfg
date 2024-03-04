@@ -11,4 +11,6 @@
   home.packages = with pkgs; [
     firefox
   ];
+
+  programs.autorandr.enable = true;
 }

@@ -4,6 +4,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,13 +23,10 @@
     let
       inherit (import ./options.nix) mainUsername;
 
-      mkSystem = configPath:
+      mkSystem = modules:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [
-            configPath
-            inputs.home-manager.nixosModules.default
-          ];
+          inherit modules;
         };
 
       mkHome = system: configPath:
@@ -32,7 +38,16 @@
     in
     {
       nixosConfigurations = {
-        default = mkSystem ./hosts/default/configuration.nix;
+        default = mkSystem [
+          ./hosts/default/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+        nixos-vm = mkSystem [
+          inputs.disko.nixosModules.default
+          ./hosts/nixos-vm/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
+        ];
       };
 
       # Non-NixOS home-manager profiles

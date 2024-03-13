@@ -8,25 +8,28 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixGL = {
+      url = "github:nix-community/nixGL/3067d653b937286890e68d20e24fa98f00fc0308";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixGL, ... } @ inputs:
     let
-      inherit (import ./options.nix) mainUsername;
-
-      mkHome = username: system: configPath:
+      mkHome = {username, system, modules}:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            configPath
+          extraSpecialArgs = { inherit inputs; };
+          modules = modules ++ [
             {
               nix.package = pkgs.nix;
               home = {
                 inherit username;
-                homeDirectory = "/home/${mainUsername}";
+                homeDirectory = "/home/${username}";
               };
             }
           ];
@@ -34,7 +37,16 @@
     in
     {
       homeConfigurations = {
-        "${mainUsername}@x86_64-linux" = mkHome "${mainUsername}" "x86_64-linux" ./home/main-user.nix;
+        "kris@ubuntu-nix.styx" = mkHome {
+          username = "kris";
+          system = "x86_64-linux"; 
+          modules = [
+            ./home/main-user.nix
+            ({ ... }: {
+              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia";
+            })
+          ];
+        };
       };
     };
 }

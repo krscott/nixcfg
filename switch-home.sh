@@ -2,7 +2,7 @@
 
 set -eou pipefail
 
-SYSTEM=$(nix eval --impure --raw --expr 'builtins.currentSystem')
+#SYSTEM=$(nix eval --impure --raw --expr 'builtins.currentSystem')
 
-nix run nixpkgs#home-manager -- switch --flake ."#$USER@$SYSTEM"
+nix run nixpkgs#home-manager -- switch --flake ."#$USER@$HOSTNAME"
 

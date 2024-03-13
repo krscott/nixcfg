@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./core.nix
@@ -7,9 +7,22 @@
     ../kitty/kitty.nix
   ];
 
-  home.packages = with pkgs; [
-    firefox
-  ];
+  options = {
+    nixGLPrefix = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = ''
+        Prepended wrapper for OpenGL applications.
+      '';
+      example = "\${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia";
+    };
+  };
 
-  programs.autorandr.enable = true;
+  config = {
+    home.packages = with pkgs; [
+      firefox
+    ];
+
+    programs.autorandr.enable = true;
+  };
 }

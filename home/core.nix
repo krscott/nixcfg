@@ -1,6 +1,13 @@
 { ... }:
 
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

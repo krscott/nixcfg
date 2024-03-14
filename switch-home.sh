@@ -4,5 +4,7 @@ set -eou pipefail
 
 #SYSTEM=$(nix eval --impure --raw --expr 'builtins.currentSystem')
 
-nix run nixpkgs#home-manager -- switch --flake ."#$USER@$HOSTNAME"
+export NIXPKGS_ALLOW_UNFREE=1
+# Note: --impure required by nixGLNvidia
+nix run nixpkgs#home-manager -- switch --flake ."#$USER@$HOSTNAME" --impure "$@"
 

@@ -14,7 +14,6 @@
       description = ''
         Prepended wrapper for OpenGL applications.
       '';
-      example = "\${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia";
     };
   };
 

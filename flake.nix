@@ -10,7 +10,7 @@
     };
 
     nixGL = {
-      url = "github:nix-community/nixGL/3067d653b937286890e68d20e24fa98f00fc0308";
+      url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -43,10 +43,12 @@
           modules = [
             ./home/main-user.nix
             ({ ... }: {
-              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia";
+              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia-550.54.14";
             })
           ];
         };
       };
+
+      inherit nixGL;
     };
 }

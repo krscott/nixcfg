@@ -17,3 +17,5 @@ bindkey "^[[1;5C"            forward-word        # Ctrl+Right
 
 alias nsh="nix-shell --command zsh -p"
 alias ndev="nix develop --command zsh"
+
+eval "$(direnv hook zsh)"

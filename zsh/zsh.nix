@@ -1,6 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    direnv
+    nix-direnv
+  ];
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;

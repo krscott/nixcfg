@@ -108,6 +108,9 @@
           disabled = false;
           symbol = "";
         };
+        container = {
+          disabled = true;
+        };
       } // theme;
   };
 }

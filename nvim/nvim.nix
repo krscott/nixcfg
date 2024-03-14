@@ -12,6 +12,7 @@
       nvim-treesitter.withAllGrammars
       telescope-nvim
       undotree
+      vim-commentary
       vim-sensible
       vim-sleuth
       vim-tmux-navigator

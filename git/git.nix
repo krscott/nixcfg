@@ -14,6 +14,11 @@ in
       package = pkgs.gitFull;  # Includes gitk
       userName = gitFullName;
       userEmail = gitEmail;
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
+      };
       aliases = {
         s = "status";
         lol = "log --oneline --date-order";

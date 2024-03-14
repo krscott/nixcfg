@@ -18,6 +18,7 @@ lsp.eslint.setup({
   end,
 })
 
+lsp.gleam.setup(defaults)
 lsp.golangci_lint_ls.setup(defaults)
 lsp.gopls.setup(defaults)
 lsp.html.setup(defaults)

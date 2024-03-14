@@ -32,6 +32,7 @@
       cmp-nvim-lsp
       nvim-cmp
       luasnip
+      gleam-vim
 
       # Theme
       catppuccin-nvim
@@ -55,6 +56,8 @@
       nodePackages.bash-language-server
       # C
       clang
+      # Gleam
+      gleam
       # Go
       golangci-lint-langserver
       gopls

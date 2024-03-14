@@ -17,7 +17,7 @@ in
     enable = true;
     package = (nixgl pkgs.kitty);
     font.name = "${nerdfont} Nerd Font";
-    font.size = 12;
+    font.size = 14;
     theme = "Catppuccin-Mocha";
     extraConfig = builtins.readFile ./kitty.conf;
   };

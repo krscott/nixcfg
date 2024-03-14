@@ -15,5 +15,6 @@
     neofetch
     ripgrep
     tldr
+    nix-direnv
   ];
 }

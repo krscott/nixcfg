@@ -1,27 +1,16 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./core.nix
     ./sh.nix
+    ./nixgl-option.nix
 
     ../kitty/kitty.nix
   ];
 
-  options = {
-    nixGLPrefix = lib.mkOption {
-      type = lib.types.str;
-      default = "";
-      description = ''
-        Prepended wrapper for OpenGL applications.
-      '';
-    };
-  };
+  home.packages = with pkgs; [
+    firefox
+  ];
 
-  config = {
-    home.packages = with pkgs; [
-      firefox
-    ];
-
-    programs.autorandr.enable = true;
-  };
+  programs.autorandr.enable = true;
 }

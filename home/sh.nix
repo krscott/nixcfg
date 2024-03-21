@@ -15,5 +15,9 @@
     neofetch
     ripgrep
     tldr
+
+    # Rust
+    rustc
+    cargo
   ];
 }

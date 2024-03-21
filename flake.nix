@@ -41,10 +41,8 @@
           username = "kris";
           system = "x86_64-linux"; 
           modules = [
+            ./hosts/styx/styx-home.nix
             ./home/main-user.nix
-            ({ ... }: {
-              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia-550.54.14";
-            })
           ];
         };
       };

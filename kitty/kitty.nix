@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   nixgl = import ../lib/nixgl.nix { inherit pkgs config; };
-  inherit (import ../options.nix) nerdfont;
+  inherit (import ../options.nix) fontName fontSize;
 in
 {
   imports = [
@@ -16,8 +16,8 @@ in
   programs.kitty = {
     enable = true;
     package = (nixgl pkgs.kitty);
-    font.name = "${nerdfont} Nerd Font";
-    font.size = 14;
+    font.name = fontName;
+    font.size = fontSize;
     theme = "Catppuccin-Mocha";
     extraConfig = builtins.readFile ./kitty.conf;
   };

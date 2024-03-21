@@ -1,11 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   inherit (import ../options.nix) nerdfont;
-  nerdfontPkg = (pkgs.nerdfonts.override { fonts = [ nerdfont ]; });
+
+  fonts = [
+    nerdfont
+    "JetBrainsMono"
+  ]; 
+
+  nerdfontPkg = (pkgs.nerdfonts.override { inherit fonts; });
+
+  symlinkFont = fontFamily: {
+    ".local/share/fonts/${fontFamily}".source = "${nerdfontPkg}/share/fonts/truetype/NerdFonts";
+  };
 in
 {
   home.packages = [ nerdfontPkg ];
 
-  # Required for running kitty with distrobox-export
-  home.file.".local/share/fonts/nixpkg-nerdfonts".source = "${nerdfontPkg}/share/fonts";
+  home.file = lib.mkMerge (builtins.map symlinkFont fonts);
 }

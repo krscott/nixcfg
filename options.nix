@@ -3,5 +3,8 @@
   gitEmail = "kscott91@gmail.com";
   gitFullName = "Kris Scott";
 
-  nerdfont = "JetBrainsMono";
+  # nerdfont = "FantasqueSansMono";
+  # nerdfont = "Hack";
+  nerdfont = "Iosevka";
+  # nerdfont = "JetBrainsMono";
 }

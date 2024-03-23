@@ -105,6 +105,14 @@
           style = "bright-black";
           symbol = "";
         };
+        package = {
+          format = "[$symbol$version]($style) ";
+          symbol = "󰏗 ";
+        };
+        rust = {
+          format = "[$symbol$version]($style) ";
+          symbol = " ";
+        };
         cmd_duration = {
           format = "[$duration]($style) ";
           style = "yellow";

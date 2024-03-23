@@ -45,6 +45,14 @@
             ./home/main-user.nix
           ];
         };
+
+        "clear" = mkHome {
+          username = "kris";
+          system = "x86_64-linux"; 
+          modules = [
+            ./home/core.nix
+          ];
+        };
       };
 
       inherit nixGL;

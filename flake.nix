@@ -10,7 +10,8 @@
     };
 
     nixGL = {
-      url = "github:nix-community/nixGL";
+      #url = "github:nix-community/nixGL";
+      url = "github:krscott/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

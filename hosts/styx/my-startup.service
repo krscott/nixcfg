@@ -1,9 +1,0 @@
-[Install]
-WantedBy=default.target
-
-[Service]
-ExecStart=/var/home/kris/dev/nixcfg/hosts/styx/startup.sh
-Type=oneshot
-
-[Unit]
-Description=Run startup scripts

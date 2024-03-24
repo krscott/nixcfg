@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=my-startup
+Exec=/var/home/kris/dev/nixcfg/hosts/styx/startup.sh
+StartupNotify=false
+Terminal=False
+

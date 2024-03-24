@@ -8,13 +8,4 @@ in
   home.packages = with pkgs; [
     xorg.xinput
   ];
-
-  # systemd.user.services.fix-touch = {
-  #   Unit.Description = "Fix touch display settings";
-  #   Install.WantedBy = [ "default.target" ];
-  #   Service = {
-  #     Type = "oneshot";
-  #     ExecStart = ./fix-touch.sh;
-  #   };
-  # };
 }

@@ -2,12 +2,11 @@
 #
 # On host machine:
 # ```
-# ln -s "$PWD/my-startup.service" ~/.config/systemd/user/
-# systemctl daemon-reload
-# systemctl --user start my-startup
+# ln -s "$PWD/my-startup.desktop" ~/.config/autostart/
 # ```
 
 set -eou pipefail
+shopt -s failglob
 
 cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 

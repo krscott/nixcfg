@@ -8,15 +8,20 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      harpoon
       nvim-treesitter.withAllGrammars
-      telescope-nvim
-      undotree
-      vim-commentary
       vim-sensible
-      vim-sleuth
+
+      # Nav/UI
+      harpoon
+      telescope-nvim
+      trouble-nvim
+      undotree
       vim-tmux-navigator
       which-key-nvim
+
+      # Editing
+      vim-commentary
+      vim-sleuth
 
       # File Tree
       neo-tree-nvim

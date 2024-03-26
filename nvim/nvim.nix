@@ -20,6 +20,7 @@
       which-key-nvim
 
       # Editing
+      autoclose-nvim
       vim-commentary
       vim-sleuth
 

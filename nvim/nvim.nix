@@ -42,6 +42,7 @@
       nvim-lspconfig
       cmp-nvim-lsp
       nvim-cmp
+      cmp_luasnip
       luasnip
       gleam-vim
     ];

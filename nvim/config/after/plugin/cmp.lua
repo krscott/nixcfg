@@ -1,6 +1,12 @@
+-- see also: lsp-zero.lua
+
 local cmp = require("cmp")
 
 cmp.setup({
+    completion = {
+        -- Auto-select first item in completion menu
+        completeopt = 'menu,menuone,noinsert',
+    },
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
@@ -16,11 +22,22 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
+        -- `Tab` key to confirm completion
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+
+        -- Ctrl+Space to trigger completion menu
+        ['<C-Space>'] = cmp.mapping.complete(),
+
+        -- Scroll up and down in the completion documentation
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+
+        -- Cancel
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+        -- Accept currently selected item.
+        -- Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },

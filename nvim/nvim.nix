@@ -36,6 +36,7 @@
       # Parsing/Highlighting
       nvim-treesitter.withAllGrammars
       todo-comments-nvim
+      vim-illuminate
 
       # LSP
       lsp-zero-nvim

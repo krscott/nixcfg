@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     firefox
+    chromium
   ];
 
   programs.autorandr.enable = true;

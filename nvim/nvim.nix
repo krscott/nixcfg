@@ -8,7 +8,6 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
       vim-sensible
 
       # Nav/UI
@@ -32,6 +31,10 @@
       # Git
       vim-fugitive
       lazygit-nvim
+      
+      # Parsing/Highlighting
+      nvim-treesitter.withAllGrammars
+      todo-comments-nvim
 
       # LSP
       lsp-zero-nvim

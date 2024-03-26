@@ -16,7 +16,7 @@ opt.autoindent = true
 opt.expandtab = true -- Use spaces instead of tabs
 opt.shiftround = true
 opt.shiftwidth = 4
-opt.smartindent = true
+opt.smartindent = false
 opt.tabstop = 4
 
 -- Line numbers

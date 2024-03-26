@@ -18,7 +18,6 @@ in
     package = (nixgl pkgs.kitty);
     font.name = fontName;
     font.size = fontSize;
-    theme = "Catppuccin-Mocha";
     extraConfig = builtins.readFile ./kitty.conf;
   };
 }

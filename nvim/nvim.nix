@@ -44,9 +44,6 @@
       nvim-cmp
       luasnip
       gleam-vim
-
-      # Theme
-      catppuccin-nvim
     ];
 
     extraPackages = with pkgs; [

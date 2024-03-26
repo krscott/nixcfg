@@ -20,6 +20,7 @@
 
       # Editing
       autoclose-nvim
+      tabout-nvim
       vim-commentary
       vim-sleuth
 

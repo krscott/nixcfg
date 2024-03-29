@@ -1,13 +1,12 @@
 { config, pkgs, lib, ... }:
 let
   krslib = import ../lib/krslib.nix { inherit lib; };
-  #nixgl = import ../lib/nixgl.nix { inherit pkgs config; };
   inherit (import ../options.nix) fontName fontSize;
 in
 {
   imports = [
     ../font/nerdfont.nix
-    ../lib/nixgl-option.nix
+    ../lib/nixgl.nix
   ];
 
   options = {

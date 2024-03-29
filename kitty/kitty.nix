@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 let
   krslib = import ../lib/krslib.nix { inherit lib; };
-  inherit (import ../options.nix) fontName fontSize;
 in
 {
   imports = [
@@ -9,8 +8,11 @@ in
     ../lib/nixgl.nix
   ];
 
-  options = {
-    krs.kitty.enable = krslib.mkEnableOptionTrue "kitty";
+  options.krs.kitty = {
+    enable = krslib.mkEnableOptionTrue "kitty";
+    # Font must also be added to krs.nerdfonts.fonts in nerdfont.nix
+    fontName = krslib.mkStrOption "Font Name" "FantasqueSansM Nerd Font";
+    fontSize = krslib.mkIntOption "Font Size" 16;
   };
 
   config = lib.mkIf config.krs.kitty.enable {
@@ -22,8 +24,8 @@ in
     programs.kitty = {
       enable = true;
       package = (config.nixgl pkgs.kitty);
-      font.name = fontName;
-      font.size = fontSize;
+      font.name = config.krs.kitty.fontName;
+      font.size = config.krs.kitty.fontSize;
       extraConfig = builtins.readFile ./kitty.conf;
     };
   };

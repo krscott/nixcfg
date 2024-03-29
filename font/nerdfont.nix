@@ -1,20 +1,25 @@
-{ pkgs, lib, ... }:
-let
-  inherit (import ../options.nix) nerdfont;
-
-  fonts = [
-    nerdfont
-    "JetBrainsMono"
-  ]; 
-
-  nerdfontPkg = (pkgs.nerdfonts.override { inherit fonts; });
-
-  symlinkFont = fontFamily: {
-    ".local/share/fonts/${fontFamily}".source = "${nerdfontPkg}/share/fonts/truetype/NerdFonts";
-  };
-in
+{ config, pkgs, lib, ... }:
 {
-  home.packages = [ nerdfontPkg ];
+  options = {
+    krs.nerdfonts.fonts = lib.mkOption {
+      default = [ "JetBrainsMono" "Iosevka" "FantasqueSansMono" ];
+      description = "Enabled Nerd Fonts";
+    };
+  };
 
-  home.file = lib.mkMerge (builtins.map symlinkFont fonts);
+  config = 
+    let
+      inherit (config.krs.nerdfonts) fonts;
+
+      nerdfontPkg = (pkgs.nerdfonts.override { inherit fonts; });
+
+      symlinkFont = fontFamily: {
+        ".local/share/fonts/${fontFamily}".source = "${nerdfontPkg}/share/fonts/truetype/NerdFonts";
+      };
+    in
+    {
+      home.packages = [ nerdfontPkg ];
+
+      home.file = lib.mkMerge (builtins.map symlinkFont fonts);
+    };
 }

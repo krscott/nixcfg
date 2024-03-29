@@ -34,4 +34,10 @@
 
   programs.autorandr.enable = true;
   programs.fzf.enable = true;
+
+  home.shellAliases = {
+    ls = "ls --color=auto";
+    la = "ls -a --color=auto";
+    ll = "ls -lha --color=auto";
+  };
 }

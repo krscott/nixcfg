@@ -6,6 +6,7 @@
     ../nvim/nvim.nix
     ../tmux/tmux.nix
     ../zsh/zsh.nix
+    ../starship/starship.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,9 +16,15 @@
     neofetch
     ripgrep
     tldr
-
+    direnv
+    nix-direnv
+    
     # Rust
     rustc
     cargo
   ];
+
+  programs.fzf = {
+    enable = true;
+  };
 }

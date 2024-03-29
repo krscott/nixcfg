@@ -1,7 +1,11 @@
 { pkgs, ... }:
-
 {
   imports = [
+    ./core.nix
+    ./nixgl-option.nix
+
+    ../theme/catppuccin.nix
+    ../kitty/kitty.nix
     ../git/git.nix
     ../nvim/nvim.nix
     ../tmux/tmux.nix
@@ -10,6 +14,11 @@
   ];
 
   home.packages = with pkgs; [
+    # GUI
+    firefox
+    chromium
+    
+    # CLI
     btop
     fd
     htop
@@ -24,7 +33,6 @@
     cargo
   ];
 
-  programs.fzf = {
-    enable = true;
-  };
+  programs.autorandr.enable = true;
+  programs.fzf.enable = true;
 }

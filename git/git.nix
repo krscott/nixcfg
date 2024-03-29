@@ -1,7 +1,4 @@
 { pkgs, ... }:
-let
-  inherit (import ../options.nix) gitFullName gitEmail;
-in
 {
   programs = {
     vim = {
@@ -12,8 +9,6 @@ in
     git = {
       enable = true;
       package = pkgs.gitFull;  # Includes gitk
-      userName = gitFullName;
-      userEmail = gitEmail;
       extraConfig = {
         init = {
           defaultBranch = "main";

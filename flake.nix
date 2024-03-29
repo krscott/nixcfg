@@ -43,7 +43,7 @@
           system = "x86_64-linux"; 
           modules = [
             ./hosts/styx/styx-home.nix
-            ./home/home.nix
+            ./home/kris.nix
           ];
         };
 

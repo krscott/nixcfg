@@ -2,7 +2,6 @@
 {
   imports = [
     ./core.nix
-    ./nixgl-option.nix
 
     ../theme/catppuccin.nix
     ../kitty/kitty.nix

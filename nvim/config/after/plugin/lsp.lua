@@ -4,11 +4,20 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local defaults = { capabilities = capabilities }
 
+local function with_defaults(settings)
+  for k, v in pairs(defaults) do
+    if settings[k] == nil then
+      settings[k] = v
+    end
+  end
+  return settings
+end
+
 lsp.bashls.setup(defaults)
 lsp.clangd.setup(defaults)
 lsp.cssls.setup(defaults)
 
-lsp.eslint.setup({
+lsp.eslint.setup(with_defaults {
   on_attach = function(_ --[[client]], bufnr)
     -- Format document on save
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -24,7 +33,7 @@ lsp.gopls.setup(defaults)
 lsp.html.setup(defaults)
 lsp.jsonls.setup(defaults)
 
-lsp.lua_ls.setup({
+lsp.lua_ls.setup(with_defaults {
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   on_init = function(client)
     local path = client.workspace_folders[1].name

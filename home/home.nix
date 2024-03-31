@@ -26,10 +26,11 @@
     tldr
     direnv
     nix-direnv
-    
+
     # Rust
     rustc
     cargo
+    gcc # Required for linking
   ];
 
   programs.autorandr.enable = true;

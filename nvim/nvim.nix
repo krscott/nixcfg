@@ -82,6 +82,7 @@
       black
       # Rust
       rust-analyzer
+      rustfmt
       # Typescript
       nodePackages.typescript-language-server
       # Web (ESLint, HTML, CSS, JSON)

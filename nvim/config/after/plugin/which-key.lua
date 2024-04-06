@@ -5,6 +5,7 @@ wk.register({
         c = { name = "code" },
         g = { name = "git" },
         p = { name = "project" },
+        v = { name = "void-register" }
     }
 })
 

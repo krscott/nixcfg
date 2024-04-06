@@ -1,3 +1,10 @@
+local neodev_exists, neodev = pcall(require, 'neodev')
+if (neodev_exists) then
+  neodev.setup({
+    library = { plugins = { "nvim-dap-ui" }, types = true },
+  })
+end
+
 local lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -62,7 +69,14 @@ lsp.lua_ls.setup(with_defaults {
       })
     end
     return true
-  end
+  end,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
 })
 
 lsp.nil_ls.setup(defaults)

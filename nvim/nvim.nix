@@ -1,5 +1,15 @@
 { pkgs, ... }:
-
+let
+  nvim-nio = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-nio";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neotest";
+      repo = "nvim-nio";
+      rev = "5800f585def265d52f1d8848133217c800bcb25d";
+      sha256 = "0y3afl42z41ymksk29al5knasmm9wmqzby860x8zj0i0mfb1q5k5";
+    };
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -47,9 +57,13 @@
       luasnip
       gleam-vim
       rustaceanvim
+      neodev-nvim
 
       # Debugging
       nvim-dap
+      nvim-dap-ui
+      nvim-nio # Required by nvim-dap-ui
+      telescope-dap-nvim
     ];
 
     extraPackages = with pkgs; [

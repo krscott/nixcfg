@@ -15,6 +15,10 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Keep cursor in-place when yanking
+vim.keymap.set("v", "y", "myy`y")
+vim.keymap.set("v", "Y", "myY`y")
+
 -- Delete to void register
 vim.keymap.set("x", "<leader>vp", "\"_dP")
 vim.keymap.set("n", "<leader>vd", "\"_d")

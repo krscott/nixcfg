@@ -9,3 +9,10 @@ vim.keymap.set(
     end,
     { silent = true, buffer = bufnr, desc = "Code Action (Rust)" }
 )
+
+vim.keymap.set(
+    "n",
+    "<leader>cd",
+    function() vim.cmd.RustLsp('debuggables') end,
+    { buffer = bufnr, desc = "RustLsp: Debuggables" }
+)

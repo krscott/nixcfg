@@ -46,6 +46,10 @@
       cmp_luasnip
       luasnip
       gleam-vim
+      rustaceanvim
+
+      # Debugging
+      nvim-dap
     ];
 
     extraPackages = with pkgs; [
@@ -87,6 +91,9 @@
       nodePackages.typescript-language-server
       # Web (ESLint, HTML, CSS, JSON)
       nodePackages.vscode-langservers-extracted
+
+      # Debugging
+      lldb
     ];
   };
 

@@ -67,5 +67,12 @@ lsp.lua_ls.setup(with_defaults {
 
 lsp.nil_ls.setup(defaults)
 lsp.pyright.setup(defaults)
-lsp.rust_analyzer.setup(defaults)
+--lsp.rust_analyzer.setup(defaults) -- handled by rustaceanvim
 lsp.tsserver.setup(defaults)
+
+
+-- Keymaps
+-- TODO: https://github.com/neovim/nvim-lspconfig#suggested-configuration
+
+-- Code actions
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })

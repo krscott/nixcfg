@@ -33,6 +33,7 @@ in
       tabout-nvim
       vim-commentary
       vim-sleuth
+      nvim-surround
 
       # File Tree
       neo-tree-nvim

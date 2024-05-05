@@ -8,6 +8,10 @@
     };
   };
 
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+  };
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

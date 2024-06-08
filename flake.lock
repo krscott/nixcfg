@@ -43,15 +43,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1711239329,
-        "narHash": "sha256-YwifThbV0A8BwsctouBdNjLvUnx6/5DY0LN2RNFOAKU=",
-        "owner": "krscott",
+        "lastModified": 1713543440,
+        "narHash": "sha256-lnzZQYG0+EXl/6NkGpyIz+FEOc/DSEG57AP1VsdeNrM=",
+        "owner": "nix-community",
         "repo": "nixGL",
-        "rev": "ae262f04d367491af3e3722651da0bf7505adb9f",
+        "rev": "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a",
         "type": "github"
       },
       "original": {
-        "owner": "krscott",
+        "owner": "nix-community",
         "repo": "nixGL",
         "type": "github"
       }

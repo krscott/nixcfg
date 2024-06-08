@@ -88,10 +88,8 @@ lsp.tsserver.setup(defaults)
 -- Custom formatter shim
 -- https://discourse.nixos.org/t/how-to-add-the-vim-python-code-formatting-black-with-nix/21775/7
 
-require("lsp-format").setup {}
-local on_attach = function(client)
-  require("lsp-format").on_attach(client)
-end
+local lsp_format = require("lsp-format")
+lsp_format.setup({})
 vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 
 lsp.efm.setup {
@@ -102,7 +100,7 @@ lsp.efm.setup {
       python = { { formatCommand = "black -", formatStdin = true }, },
     }
   },
-  on_attach = on_attach,
+  on_attach = lsp_format.on_attach,
 }
 
 

@@ -24,6 +24,9 @@
         format = "[$symbol$version]($style) ";
         symbol = "󰏗 ";
       };
+      python = {
+        symbol = "";
+      };
       rust = {
         format = "[$symbol$version]($style) ";
         symbol = " ";

@@ -54,11 +54,14 @@ in
       nvim-lspconfig
       cmp-nvim-lsp
       nvim-cmp
+      neodev-nvim # TODO: EOL, switch to lazydev.nvim?
+      lsp-format-nvim # For formatter shims
+
+      # Language-Specific
       cmp_luasnip
       luasnip
       gleam-vim
       rustaceanvim
-      neodev-nvim
 
       # Debugging
       nvim-dap
@@ -80,6 +83,9 @@ in
       # Language Servers
       # (:help lspconfig-all)
       # Note: Don't forget to add lsp.<lang>.setup() in `lsp.lua`!
+
+      # General Purpose LSP, for shims
+      efm-langserver
 
       # Bash
       nodePackages.bash-language-server

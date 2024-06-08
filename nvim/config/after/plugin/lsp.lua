@@ -85,6 +85,27 @@ lsp.pyright.setup(defaults)
 lsp.tsserver.setup(defaults)
 
 
+-- Custom formatter shim
+-- https://discourse.nixos.org/t/how-to-add-the-vim-python-code-formatting-black-with-nix/21775/7
+
+require("lsp-format").setup {}
+local on_attach = function(client)
+  require("lsp-format").on_attach(client)
+end
+vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
+
+lsp.efm.setup {
+  init_options = { documentFormatting = true },
+  settings = {
+    rootMarkers = { ".git/", "pyproject.toml" },
+    languages = {
+      python = { { formatCommand = "black -", formatStdin = true }, },
+    }
+  },
+  on_attach = on_attach,
+}
+
+
 -- Keymaps
 -- TODO: https://github.com/neovim/nvim-lspconfig#suggested-configuration
 

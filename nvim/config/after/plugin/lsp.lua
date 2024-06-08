@@ -80,29 +80,21 @@ lsp.lua_ls.setup(with_defaults {
 })
 
 lsp.nil_ls.setup(defaults)
-lsp.pyright.setup(defaults)
+lsp.pyright.setup(with_defaults {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true, -- Using Ruff
+    },
+    python = {
+      analysis = {
+        typeCheckingMode = 'strict',
+      },
+    },
+  },
+})
+lsp.ruff_lsp.setup(defaults)
 --lsp.rust_analyzer.setup(defaults) -- handled by rustaceanvim
 lsp.tsserver.setup(defaults)
-
-
--- Custom formatter shim
--- https://discourse.nixos.org/t/how-to-add-the-vim-python-code-formatting-black-with-nix/21775/7
-
-local lsp_format = require("lsp-format")
-lsp_format.setup({})
-vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
-
-lsp.efm.setup {
-  init_options = { documentFormatting = true },
-  settings = {
-    rootMarkers = { ".git/", "pyproject.toml" },
-    languages = {
-      python = { { formatCommand = "black -", formatStdin = true }, },
-    }
-  },
-  on_attach = lsp_format.on_attach,
-}
-
 
 -- Keymaps
 -- TODO: https://github.com/neovim/nvim-lspconfig#suggested-configuration

@@ -84,9 +84,6 @@ in
       # (:help lspconfig-all)
       # Note: Don't forget to add lsp.<lang>.setup() in `lsp.lua`!
 
-      # General Purpose LSP, for shims
-      efm-langserver
-
       # Bash
       nodePackages.bash-language-server
       # C
@@ -104,7 +101,8 @@ in
       statix
       # Python
       pyright
-      black
+      ruff
+      ruff-lsp
       # Rust
       rust-analyzer
       rustfmt

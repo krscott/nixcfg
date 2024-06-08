@@ -62,6 +62,7 @@ in
       luasnip
       gleam-vim
       rustaceanvim
+      cmake-tools-nvim
 
       # Debugging
       nvim-dap

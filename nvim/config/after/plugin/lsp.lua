@@ -96,6 +96,27 @@ lsp.ruff_lsp.setup(defaults)
 --lsp.rust_analyzer.setup(defaults) -- handled by rustaceanvim
 lsp.tsserver.setup(defaults)
 
+
+-- Formatter shims
+local lsp_format = require("lsp-format")
+lsp_format.setup({})
+vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
+
+-- Examples: https://github.com/creativenull/efmls-configs-nvim
+-- TODO: Pull from nixpkgs/package/vimPlugins.efmls-configs-nvim directly?
+lsp.efm.setup {
+  init_options = { documentFormatting = true },
+  settings = {
+    rootMarkers = { ".git/", "pyproject.toml" },
+    languages = {
+      -- python = { { formatCommand = "black -", formatStdin = true }, },
+      sh = { { formatCommand = "shfmt -ci -s -bn", formatStdin = true }, },
+    }
+  },
+  on_attach = lsp_format.on_attach,
+}
+
+
 -- Keymaps
 -- TODO: https://github.com/neovim/nvim-lspconfig#suggested-configuration
 

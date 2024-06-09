@@ -52,3 +52,44 @@ vim.keymap.set('n', '<leader>dbm', function()
     dap.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })
 end, { desc = 'DAP: Log Point Message' })
 vim.keymap.set('n', '<leader>dbt', dap.toggle_breakpoint, { desc = 'DAP: Toggle Breakpoint (F8)' })
+
+vim.keymap.set('n', '<leader>dc', dap.run_to_cursor, { desc = 'DAP: Run to Cursor' })
+
+-- Adapters
+
+dap.adapters.gdb = {
+    name = "gdb",
+    type = "executable",
+    command = "gdb",
+    args = { "-i", "dap" },
+}
+dap.adapters.lldb = {
+    name = "lldb",
+    type = "executable",
+    command = "lldb",
+    args = { "-i", "dap" },
+}
+
+dap.configurations.c = {
+    {
+        name = "Launch",
+        type = "gdb",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = "${workspaceFolder}",
+        stopAtBeginningOfMainSubprogram = false,
+        args = function()
+            local args = {}
+            while true do
+                local arg = vim.fn.input('Arg (empty to stop): ')
+                if string.len(arg) == 0 then
+                    break
+                end
+                table.insert(args, arg)
+            end
+            return args
+        end,
+    },
+}

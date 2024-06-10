@@ -1,5 +1,11 @@
 -- see also: lsp-zero.lua
 
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local luasnip = require("luasnip")
 local cmp = require("cmp")
 
 cmp.setup({
@@ -22,8 +28,28 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        -- `Tab` key to confirm completion
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        -- Tab key to confirm completion or jump to next snippet field
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.confirm()
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+                -- elseif luasnip.expand_or_jumpable() then
+                --     luasnip.expand_or_jump()
+                -- elseif vim.fn.pumvisible() == 1 then
+                --   feedkey("<C-n>")
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        -- Shift+Tab to jump to previous snippet field
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
 
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -37,7 +63,7 @@ cmp.setup({
 
         -- Accept currently selected item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },

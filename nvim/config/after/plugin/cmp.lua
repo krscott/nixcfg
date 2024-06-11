@@ -30,15 +30,20 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         -- Tab key to confirm completion or jump to next snippet field
         ["<Tab>"] = cmp.mapping(function(fallback)
+            local did_action = false
             if cmp.visible() then
+                did_action = true
                 cmp.confirm()
-            elseif luasnip.expand_or_locally_jumpable() then
+            end
+            if luasnip.expand_or_locally_jumpable() then
+                did_action = true
                 luasnip.expand_or_jump()
                 -- elseif luasnip.expand_or_jumpable() then
                 --     luasnip.expand_or_jump()
                 -- elseif vim.fn.pumvisible() == 1 then
                 --   feedkey("<C-n>")
-            else
+            end
+            if not did_action then
                 fallback()
             end
         end, { "i", "s" }),

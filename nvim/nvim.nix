@@ -29,7 +29,7 @@ in
       which-key-nvim
 
       # Editing
-      autoclose-nvim
+      nvim-autopairs
       tabout-nvim
       vim-commentary
       vim-sleuth

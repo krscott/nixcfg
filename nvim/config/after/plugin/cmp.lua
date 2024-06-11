@@ -30,20 +30,19 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         -- Tab key to confirm completion or jump to next snippet field
         ["<Tab>"] = cmp.mapping(function(fallback)
-            local did_action = false
             if cmp.visible() then
-                did_action = true
                 cmp.confirm()
-            end
-            if luasnip.expand_or_locally_jumpable() then
-                did_action = true
+
+                -- If this is done on same step, it deletes end paren.
+                -- So, delay by a tick
+                if luasnip.locally_jumpable(1) then
+                    vim.defer_fn(function() luasnip.jump(1) end, 0)
+                end
+            elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
-                -- elseif luasnip.expand_or_jumpable() then
-                --     luasnip.expand_or_jump()
                 -- elseif vim.fn.pumvisible() == 1 then
                 --   feedkey("<C-n>")
-            end
-            if not did_action then
+            else
                 fallback()
             end
         end, { "i", "s" }),

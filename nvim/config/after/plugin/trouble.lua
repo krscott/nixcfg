@@ -7,31 +7,43 @@ if (wk_exists) then
     })
 end
 
+local trouble = require("trouble")
+
+trouble.setup({})
+
 vim.keymap.set("n", "<leader>xx",
-    function() require("trouble").toggle() end,
-    { desc = "Trouble: Toggle" }
+    "<cmd>Trouble close<cr>",
+    { desc = "Trouble: Close" }
 )
-vim.keymap.set("n", "<leader>xw",
-    function() require("trouble").toggle("workspace_diagnostics") end,
-    { desc = "Trouble: Workspace Diagnostics" }
-)
+-- vim.keymap.set("n", "<leader>xw",
+--     "<cmd>Trouble diagnostics toggle<cr>",
+--     { desc = "Trouble: Workspace Diagnostics" }
+-- )
 vim.keymap.set("n", "<leader>xd",
-    function() require("trouble").toggle("document_diagnostics") end,
-    { desc = "Trouble: Document Diagnostics" }
+    "<cmd>Trouble diagnostics toggle<cr>",
+    { desc = "Trouble: Diagnostics" }
+)
+vim.keymap.set("n", "<leader>cs",
+    "<cmd>Trouble symbols toggle win.position=left<cr>",
+    { desc = "Trouble: Symbols" }
+)
+vim.keymap.set("n", "<leader>cl",
+    "<cmd>Trouble lsp toggle win.position=left<cr>",
+    { desc = "Trouble: LSP Definitions" }
 )
 vim.keymap.set("n", "<leader>xq",
-    function() require("trouble").toggle("quickfix") end,
+    "<cmd>Trouble qflist toggle<cr>",
     { desc = "Trouble: Quickfix" }
 )
 vim.keymap.set("n", "<leader>xl",
-    function() require("trouble").toggle("loclist") end,
+    "<cmd>Trouble loclist toggle<cr>",
     { desc = "Trouble: Location List" }
 )
 vim.keymap.set("n", "gR",
-    function() require("trouble").toggle("lsp_references") end,
+    "<cmd>Trouble lsp_references<cr>",
     { desc = "Trouble: LSP References" }
 )
 vim.keymap.set("n", "gD",
-    function() require("trouble").toggle("lsp_definitions") end,
+    "<cmd>Trouble lsp_definitions<cr>",
     { desc = "Trouble: LSP Definitions" }
 )

@@ -55,6 +55,7 @@ in
       cmp-nvim-lsp
       nvim-cmp
       neodev-nvim # TODO: EOL, switch to lazydev.nvim?
+      otter-nvim # Embedded code LSP
 
       # Formatter
       lsp-format-nvim # For formatter shims

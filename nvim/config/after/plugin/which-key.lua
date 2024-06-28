@@ -9,5 +9,13 @@ wk.register({
     }
 })
 
+wk.register({
+    ['<leader>'] = {
+        v = { name = "void-register" },
+    }
+}, {
+    mode = "v",
+})
+
 vim.o.timeout = true
 vim.o.timeoutlen = 300

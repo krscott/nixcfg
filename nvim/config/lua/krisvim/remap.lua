@@ -25,9 +25,9 @@ vim.keymap.set("n", "<leader>vd", "\"_d")
 vim.keymap.set("v", "<leader>vd", "\"_d")
 
 -- Yank into system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank line to clipboard" })
 
 -- Temporarily disable highlight
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")

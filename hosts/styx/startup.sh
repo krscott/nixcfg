@@ -14,8 +14,14 @@ isdef() {
 	type "$1" >/dev/null 2>&1
 }
 
-isdef rclone || ./rclone-install.sh
-# Configure gdrive manually: https://rclone.org/drive/
-isdef rclone && [[ -d "$HOME/gdrive" ]] && rclone mount gdrive: "$HOME/gdrive" --daemon
+(
+	date
 
-distrobox enter ubuntu-nix -- bash -ic './fix-touch.sh'
+	echo "=== Setup Google Drive ==="
+	isdef rclone || ./rclone-install.sh
+	# Configure gdrive manually: https://rclone.org/drive/
+	isdef rclone && [[ -d "$HOME/gdrive" ]] && rclone mount gdrive: "$HOME/gdrive" --daemon
+
+	echo "=== Fix touch ==="
+	distrobox enter ubuntu-nix -- bash -ic './fix-touch.sh'
+) >startup.log 2>&1

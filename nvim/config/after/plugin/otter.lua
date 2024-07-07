@@ -17,4 +17,6 @@ local tsquery = nil
 otter.activate(languages, completion, diagnostics, tsquery)
 --]]
 
-otter.activate()
+if require('nvim-treesitter.parsers').has_parser() then
+    otter.activate()
+end

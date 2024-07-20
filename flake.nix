@@ -54,6 +54,9 @@
           system = "x86_64-linux"; 
           modules = [
             ./home/kris.nix
+            {
+              krs.sync-dots.enable = true;
+            }
           ];
         };
 

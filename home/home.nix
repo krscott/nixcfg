@@ -10,6 +10,7 @@
     ../tmux/tmux.nix
     ../zsh/zsh.nix
     ../starship/starship.nix
+    ../win/sync-dots.nix
   ];
 
   home.packages = with pkgs; [

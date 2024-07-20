@@ -7,6 +7,13 @@
     type = lib.types.bool;
   };
 
+  mkEnableOptionFalse = name: lib.mkOption {
+    default = false;
+    example = false;
+    description = "Whether to enable ${name}.";
+    type = lib.types.bool;
+  };
+
   mkStrOption = description: default: lib.mkOption {
     inherit description default;
     type = lib.types.str;

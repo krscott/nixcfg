@@ -43,6 +43,17 @@
           modules = [
             ./hosts/styx/styx-home.nix
             ./home/kris.nix
+            {
+              krs.kitty.enable = true;
+            }
+          ];
+        };
+
+        "kris@galatea" = mkHome {
+          username = "kris";
+          system = "x86_64-linux"; 
+          modules = [
+            ./home/kris.nix
           ];
         };
 

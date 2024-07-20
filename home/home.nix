@@ -41,5 +41,6 @@
     ls = "ls --color=auto";
     la = "ls -a --color=auto";
     ll = "ls -lha --color=auto";
+    direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
   };
 }

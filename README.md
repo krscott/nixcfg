@@ -8,5 +8,6 @@ My home-manager nix config.
 
 ## TODO
 
-- Learn/switch to zellij
+- Switch tmux to zellij
+- Switch vim to nixvim
 

@@ -6,3 +6,7 @@ My home-manager nix config.
 ./switch-home.sh
 ```
 
+## TODO
+
+- Learn/switch to zellij
+

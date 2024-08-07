@@ -1,16 +1,12 @@
 local wk_exists, wk = pcall(require, 'which-key')
 if (wk_exists) then
-    wk.register({
-        ['<leader>'] = {
-            d = {
-                name = "debug",
-                s = { name = "step" },
-                h = { name = "hover" },
-                u = { name = "ui" },
-                r = { name = "repl" },
-                b = { name = "breakpoints" },
-            },
-        }
+    wk.add({
+        { "<leader>d",  group = "debug" },
+        { "<leader>db", group = "breakpoints" },
+        { "<leader>dh", group = "hover" },
+        { "<leader>dr", group = "repl" },
+        { "<leader>ds", group = "step" },
+        { "<leader>du", group = "ui" },
     })
 end
 

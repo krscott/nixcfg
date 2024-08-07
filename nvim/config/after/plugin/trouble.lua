@@ -1,9 +1,7 @@
 local wk_exists, wk = pcall(require, 'which-key')
 if (wk_exists) then
-    wk.register({
-        ['<leader>'] = {
-            x = { name = "trouble" },
-        }
+    wk.add({
+        { "<leader>x", group = "trouble" },
     })
 end
 

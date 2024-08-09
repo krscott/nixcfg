@@ -43,5 +43,6 @@
     la = "ls -a --color=auto";
     ll = "ls -lha --color=auto";
     direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
+    start-ssh-agent = "eval `ssh-agent` && ssh-add";
   };
 }

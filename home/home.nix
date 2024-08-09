@@ -18,6 +18,7 @@
     # GUI
     firefox
     chromium
+    nautilus
     
     # CLI
     btop

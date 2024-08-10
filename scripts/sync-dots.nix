@@ -12,7 +12,9 @@ in
     let
       home-dir = config.krs.sync-dots.home;
       config-dir = "${home-dir}/.config";
+      # appdata-dir = "${home-dir}/AppData/Local";
       cp = "cp --no-preserve=mode,ownership";
+      # rsync = "rsync -rptgoDuL --delete";
       
       sync-dots = pkgs.writeShellScriptBin "sync-dots" ''
         mkdir -p ${config-dir}/git

@@ -55,7 +55,7 @@
           modules = [
             ./home/kris.nix
             {
-              krs.sync-dots.enable = true;
+              krs.wsl.enable = true;
             }
           ];
         };

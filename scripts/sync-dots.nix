@@ -1,16 +1,8 @@
 { config, pkgs, lib, ... }:
-let
-  krslib = import ../lib/krslib.nix { inherit lib; };
-in
 {
-  options.krs.sync-dots = {
-    enable = krslib.mkEnableOptionFalse "sync-dots";
-    home = krslib.mkStrOption "home" "/mnt/c/Users/kris";
-  };
-
-  config = lib.mkIf config.krs.sync-dots.enable (
+  config = lib.mkIf config.krs.wsl.enable (
     let
-      home-dir = config.krs.sync-dots.home;
+      home-dir = config.krs.wsl.home;
       config-dir = "${home-dir}/.config";
       # appdata-dir = "${home-dir}/AppData/Local";
       cp = "cp --no-preserve=mode,ownership";

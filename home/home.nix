@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
+let
+  krslib = import ../lib/krslib.nix { inherit lib; };
+in
 {
   imports = [
     ./core.nix
@@ -14,36 +17,51 @@
     ../scripts/sync-dots.nix
   ];
 
-  home.packages = with pkgs; [
-    # GUI
-    firefox
-    chromium
-    nautilus
-    
-    # CLI
-    btop
-    fd
-    htop
-    neofetch
-    ripgrep
-    tldr
-    direnv
-    nix-direnv
+  options.krs.wsl = {
+    enable = krslib.mkEnableOptionFalse "wsl";
+    home = krslib.mkStrOption "home" "/mnt/c/Users/kris";
+  };
 
-    # Rust
-    rustc
-    cargo
-    gcc # Required for linking
-  ];
+  config = {
+    home.packages = with pkgs; [
+      # CLI
+      btop
+      fd
+      htop
+      neofetch
+      ripgrep
+      tldr
+      direnv
+      nix-direnv
 
-  programs.autorandr.enable = true;
-  programs.fzf.enable = true;
+      # Rust
+      rustc
+      cargo
+      gcc # Required for linking
+    ] ++ (
+      if config.krs.wsl.enable then [
+        # WSL
+        nautilus
+      ] else [
+        # Non-WSL
+        firefox
+        chromium
+      ]
+    );
 
-  home.shellAliases = {
-    ls = "ls --color=auto";
-    la = "ls -A --color=auto";
-    ll = "ls -lha --color=auto";
-    direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
-    start-ssh-agent = "eval `ssh-agent` && ssh-add";
+    programs.autorandr.enable = true;
+    programs.fzf.enable = true;
+
+    home.shellAliases = {
+      ls = "ls --color=auto";
+      la = "ls -A --color=auto";
+      ll = "ls -lha --color=auto";
+      direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
+      start-ssh-agent = "eval `ssh-agent` && ssh-add";
+    } // (
+      if config.krs.wsl.enable then {
+        winhome = "cd ${config.krs.wsl.home}";
+      } else {}
+    );
   };
 }

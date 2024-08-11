@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   krslib = import ../lib/krslib.nix { inherit lib; };
 in
@@ -40,12 +40,18 @@ in
       gcc # Required for linking
     ] ++ (
       if config.krs.wsl.enable then [
-        # WSL
+        # Windows (WSL)
+
         nautilus
+
       ] else [
-        # Non-WSL
+        # Linux (Non-WSL)
+
         firefox
         chromium
+
+        inputs.gnome-monitor-config.packages."${pkgs.system}".default
+
       ]
     );
 

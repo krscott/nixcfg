@@ -13,6 +13,11 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    gnome-monitor-config = {
+      url = "github:krscott/gnome-monitor-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, nixGL, ... } @ inputs:

@@ -15,6 +15,26 @@
         "type": "github"
       }
     },
+    "gnome-monitor-config": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1723388495,
+        "narHash": "sha256-1sjegRXmAIxRxowni8MbNYGfpmm9bim/kz5DGC6S4II=",
+        "owner": "krscott",
+        "repo": "gnome-monitor-config",
+        "rev": "392a25cc08f531d0104132650c6166267a1f3898",
+        "type": "github"
+      },
+      "original": {
+        "owner": "krscott",
+        "repo": "gnome-monitor-config",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -74,6 +94,7 @@
     },
     "root": {
       "inputs": {
+        "gnome-monitor-config": "gnome-monitor-config",
         "home-manager": "home-manager",
         "nixGL": "nixGL",
         "nixpkgs": "nixpkgs"

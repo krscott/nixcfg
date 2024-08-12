@@ -1,6 +1,6 @@
-{ pkgs, inputs, specialArgs, ... }:
+{ pkgs, inputs, ... }:
 let
-  inherit (specialArgs.inputs) nixGL;
+  inherit (inputs) nixGL;
 
   gmc = "${inputs.gnome-monitor-config.packages."${pkgs.system}".default}/bin/gnome-monitor-config";
 in

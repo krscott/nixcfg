@@ -2,6 +2,8 @@
 
 set -eou pipefail
 
+cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+
 is_git_dirty() {
 	test -n "$(git status --porcelain)"
 }
@@ -14,7 +16,8 @@ fi
 nix flake update
 
 if is_git_dirty; then
-	git add flake.nix
+	./switch-home.sh
+	git add flake.lock
 	git commit -m "Update flake.nix"
 else
 	echo "Flake already up-to-date"

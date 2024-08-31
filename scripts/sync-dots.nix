@@ -12,6 +12,8 @@
       grep = "${pkgs.gnugrep}/bin/grep";
       
       sync-dots = pkgs.writeShellScriptBin "sync-dots" ''
+        set -euo pipefail
+
         mkdir -p ${config-dir}/git
         ${cp} ~/.config/git/config ${config-dir}/git/config
         ${sed} -i 's/\/nix\/store\/.*\/bin\///g' ${config-dir}/git/config

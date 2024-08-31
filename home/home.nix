@@ -14,7 +14,7 @@ in
     ../zsh/zsh.nix
     ../starship/starship.nix
 
-    ../scripts/sync-dots.nix
+    ../scripts
   ];
 
   options.krs.wsl = {

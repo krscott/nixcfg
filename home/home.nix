@@ -26,13 +26,19 @@ in
     home.packages = with pkgs; [
       # CLI
       btop
-      fd
       htop
       neofetch
-      ripgrep
       tldr
       direnv
       nix-direnv
+
+      # Replacement utils 
+      bat     # cat
+      dust    # du
+      eza     # ls
+      fd      # find
+      ripgrep # grep
+      zoxide  # cd
 
       # Rust
       rustc
@@ -59,9 +65,11 @@ in
     programs.fzf.enable = true;
 
     home.shellAliases = {
-      ls = "ls --color=auto";
-      la = "ls -A --color=auto";
-      ll = "ls -lha --color=auto";
+      l = "exa";
+      ls = "exa";
+      la = "exa -a";
+      ll = "exa -lah";
+      cat = "bat -p";
       direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
       start-ssh-agent = "eval `ssh-agent` && ssh-add";
     } // (
@@ -69,5 +77,10 @@ in
         winhome = "cd ${config.krs.wsl.home}";
       } else {}
     );
+
+    home.sessionVariables = {
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      MANROFFOPT = "-c";
+    };
   };
 }

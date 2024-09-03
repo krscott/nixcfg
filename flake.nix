@@ -47,7 +47,8 @@
           system = "x86_64-linux"; 
           modules = [
             ./hosts/styx/styx-home.nix
-            ./home/kris.nix
+            ./home-manager
+            ./users/kris.nix
             {
               krs.kitty.enable = true;
             }
@@ -58,7 +59,8 @@
           username = "kris";
           system = "x86_64-linux"; 
           modules = [
-            ./home/kris.nix
+            ./home-manager
+            ./users/kris.nix
             {
               krs.wsl.enable = true;
             }
@@ -69,7 +71,7 @@
           username = "kris";
           system = "x86_64-linux"; 
           modules = [
-            ./home/core.nix
+            ./home-manager/core.nix
           ];
         };
       };

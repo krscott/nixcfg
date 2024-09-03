@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 let
-  krslib = import ../lib/krslib.nix { inherit lib; };
+  krslib = import ../../lib/krslib.nix { inherit lib; };
 in
 {
   imports = [
-    ../font/nerdfont.nix
-    ../lib/nixgl.nix
+    ../nerdfont.nix
+    ../../lib/nixgl.nix
   ];
 
   options.krs.kitty = {

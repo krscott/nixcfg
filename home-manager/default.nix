@@ -6,15 +6,15 @@ in
   imports = [
     ./core.nix
 
-    ../theme/catppuccin.nix
-    ../kitty/kitty.nix
-    ../git/git.nix
-    ../nvim/nvim.nix
-    ../tmux/tmux.nix
-    ../zsh/zsh.nix
-    ../starship/starship.nix
+    ./theme/catppuccin.nix
+    ./kitty
+    ./git.nix
+    ./nvim
+    ./tmux
+    ./zsh
+    ./starship.nix
 
-    ../scripts
+    ./scripts
   ];
 
   options.krs.wsl = {

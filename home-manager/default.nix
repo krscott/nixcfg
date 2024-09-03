@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 let
   krslib = import ../lib/krslib.nix { inherit lib; };
+  guiEnabled = !config.krs.wsl.enable;
 in
 {
   imports = [
@@ -25,20 +26,11 @@ in
   config = {
     home.packages = with pkgs; [
       # CLI
-      btop
-      htop
       neofetch
       tldr
       direnv
       nix-direnv
-
-      # Replacement utils 
-      bat     # cat
-      dust    # du
-      eza     # ls
-      fd      # find
-      ripgrep # grep
-      zoxide  # cd
+      dust    # du replacement
 
       # Rust
       rustc
@@ -53,22 +45,43 @@ in
       ] else [
         # Linux (Non-WSL)
 
-        firefox
-        chromium
-
         inputs.gnome-monitor-config.packages."${pkgs.system}".default
 
       ]
     );
 
-    programs.autorandr.enable = true;
-    programs.fzf.enable = true;
+    programs = {
+
+      # CLI
+      autorandr.enable = true;
+      bat = {
+        enable = true;
+        extraPackages = with pkgs.bat-extras; [
+          batdiff
+          batman
+          batgrep
+          batwatch
+        ];
+      };
+      btop.enable = true;
+      eza.enable = true;
+      fd.enable = true;
+      fzf.enable = true;
+      htop.enable = true;
+      ripgrep.enable = true;
+      zoxide.enable = true;
+
+      # GUI
+      firefox.enable = guiEnabled;
+      chromium.enable = guiEnabled;
+    };
+
 
     home.shellAliases = {
-      l = "exa";
-      ls = "exa";
-      la = "exa -a";
-      ll = "exa -lah";
+      l = "eza";
+      ls = "eza";
+      la = "eza -a";
+      ll = "eza -lah";
       cat = "bat -p";
       direnv-init = "echo 'use flake . --impure' >> .envrc && direnv allow";
       start-ssh-agent = "eval `ssh-agent` && ssh-add";

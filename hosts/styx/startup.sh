@@ -5,7 +5,7 @@
 # ln -s "$PWD/my-startup.desktop" ~/.config/autostart/
 # ```
 
-set -eou pipefail
+set -euo pipefail
 shopt -s failglob
 
 cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"

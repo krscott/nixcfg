@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eou pipefail
+set -euo pipefail
 
 #SYSTEM=$(nix eval --impure --raw --expr 'builtins.currentSystem')
 
@@ -10,5 +10,5 @@ nix run nixpkgs#home-manager -- switch --flake ."#$USER@$HOSTNAME" --impure "$@"
 
 # Extract dotfiles to Windows
 if command -v sync-dots >/dev/null; then
-    sync-dots
+	sync-dots
 fi

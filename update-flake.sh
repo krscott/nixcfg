@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eou pipefail
+set -euo pipefail
 
 cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 

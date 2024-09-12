@@ -10,7 +10,7 @@
       sed = "${pkgs.gnused}/bin/sed";
       awk = "${pkgs.gawk}/bin/awk";
       grep = "${pkgs.gnugrep}/bin/grep";
-      
+
       sync-dots = pkgs.writeShellScriptBin "sync-dots" ''
         set -euo pipefail
 
@@ -20,7 +20,11 @@
 
         ${cp} ~/.config/starship.toml ${config-dir}/starship.toml
 
-        ${awk} '/# Aliases/{flag=1; next} /^$/{flag=0} flag' ~/.zshrc > ${home-dir}/.bash_aliases
+        # Use ('EOF') instead of (EOF) so inner string is not evaluated
+        cat <<'EOF' > ${home-dir}/.bash_aliases
+        ${builtins.readFile ./win_bash_aliases.sh}
+        EOF
+        #${awk} '/# Aliases/{flag=1; next} /^$/{flag=0} flag' ~/.zshrc > ${home-dir}/.bash_aliases
         if ! ${grep} -Fxq "source ~/.bash_aliases" ${home-dir}/.bashrc; then
             echo "source ~/.bash_aliases" >> ${home-dir}/.bashrc
         fi

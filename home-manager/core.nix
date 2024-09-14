@@ -1,6 +1,9 @@
 { ... }:
-
 {
+  imports = [
+    ./nix-settings.nix
+  ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -11,9 +14,6 @@
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = "1";
   };
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

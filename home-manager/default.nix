@@ -28,8 +28,6 @@ in
       # CLI
       neofetch
       tldr
-      direnv
-      nix-direnv
       dust    # du replacement
 
       # Rust
@@ -64,6 +62,10 @@ in
         ];
       };
       btop.enable = true;
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
       eza.enable = true;
       fd.enable = true;
       fzf.enable = true;
@@ -74,8 +76,8 @@ in
       # GUI
       firefox.enable = guiEnabled;
       chromium.enable = guiEnabled;
-    };
 
+    };
 
     home.shellAliases = {
       l = "eza";

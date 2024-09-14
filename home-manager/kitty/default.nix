@@ -18,13 +18,6 @@ in
   config = lib.mkIf config.krs.kitty.enable (
     let
       kittyPkg = (config.nixgl pkgs.kitty);
-      kittyDesktopItem = pkgs.makeDesktopItem {
-        name = "kitty";
-        desktopName = "kitty";
-        exec = "${kittyPkg}/bin/kitty";
-        icon = "${kittyPkg}/lib/kitty/logo/kitty-128.png";
-        categories = [ "Utility" "TerminalEmulator"];
-      };
     in 
     {
       home.shellAliases = {
@@ -40,7 +33,11 @@ in
         extraConfig = builtins.readFile ./kitty.conf;
       };
 
-      home.file.".local/share/applications/kitty.desktop".text = builtins.readFile "${kittyDesktopItem}/share/applications/kitty.desktop";
-    }
+    } // (krslib.mkAppShortcut {
+      inherit pkgs;
+        name = "kitty";
+        exec = "${kittyPkg}/bin/kitty";
+        icon = "${kittyPkg}/lib/kitty/logo/kitty-128.png";
+    })
   );
 }

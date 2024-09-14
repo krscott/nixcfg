@@ -23,4 +23,15 @@
     inherit description default;
     type = lib.types.int;
   };
+
+  mkAppShortcut = { pkgs, name, exec, icon, ... }: 
+    let
+      item = pkgs.makeDesktopItem {
+        inherit name exec icon;
+        desktopName = name;
+      };
+    in
+    {
+      home.file.".local/share/applications/${name}.desktop".text = builtins.readFile "${item}/share/applications/${name}.desktop";
+    };
 }

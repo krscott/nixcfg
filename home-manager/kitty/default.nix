@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ../nerdfont.nix
+    ../nerdfont
     ../../lib/nixgl.nix
   ];
 

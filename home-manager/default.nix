@@ -22,6 +22,7 @@
     neofetch
     tldr
     dust    # du replacement
+    jq
 
     # Rust
     rustc

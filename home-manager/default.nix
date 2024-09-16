@@ -58,7 +58,7 @@
   };
 
   home.shellAliases = {
-    l = "eza";
+    l = "eza --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
     ls = "eza";
     la = "eza -a";
     ll = "eza -lah";

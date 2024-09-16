@@ -94,7 +94,7 @@ lsp.pyright.setup(with_defaults {
 })
 lsp.ruff_lsp.setup(defaults)
 --lsp.rust_analyzer.setup(defaults) -- handled by rustaceanvim
-lsp.tsserver.setup(defaults)
+lsp.ts_ls.setup(defaults)
 
 
 -- Formatter shims

@@ -13,6 +13,7 @@ To derive a config from this config (like for work or something), start with
 
 ## TODO
 
+- improvements from [this blog](https://www.josean.com/posts/7-amazing-cli-tools)
 - Add zsh-forgit
 - Switch tmux to zellij?
 - Switch vim to nixvim?

@@ -13,6 +13,7 @@ To derive a config from this config (like for work or something), start with
 
 ## TODO
 
-- Switch tmux to zellij
-- Switch vim to nixvim
+- Add zsh-forgit
+- Switch tmux to zellij?
+- Switch vim to nixvim?
 

@@ -1,5 +1,4 @@
-{ ... }:
-
+{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -13,5 +12,12 @@
         file = "init.zsh";
       }
     ];
+    initExtra = ''
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+    '';
   };
+
+  home.packages = with pkgs; [
+    zsh-fzf-tab
+  ];
 }

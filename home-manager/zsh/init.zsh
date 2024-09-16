@@ -1,4 +1,13 @@
+
+# Don't remember commands which start with space
+setopt hist_ignore_space
+
+# Set emacs mode
 bindkey -e
+
+# Make ^p and ^n search, like Up and Down
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Key codes depend on the terminal. Use `showkey -a` to check.
 bindkey "${terminfo[khome]}" beginning-of-line   # Home

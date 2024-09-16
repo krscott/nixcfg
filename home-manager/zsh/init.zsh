@@ -28,5 +28,5 @@ alias nsh="nix-shell --command zsh -p"
 alias ndev="nix develop --command zsh"
 
 type direnv > /dev/null && eval "$(direnv hook zsh)"
-type zoxide > /dev/null && eval "$(zoxide init zsh)"
+type zoxide > /dev/null && eval "$(zoxide init --cmd cd zsh)"
 

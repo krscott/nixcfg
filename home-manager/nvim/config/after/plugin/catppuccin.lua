@@ -13,4 +13,11 @@ if (status) then
     })
 
     vim.cmd.colorscheme "catppuccin"
+
+    -- vim-better-whitespace highlight red
+    vim.api.nvim_set_hl(0, 'ExtraWhitespace', {
+        ctermfg = 0,
+        ctermbg = 9,
+        bg = '#f38ba8'
+    })
 end

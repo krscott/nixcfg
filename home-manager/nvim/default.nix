@@ -43,11 +43,12 @@ in
       # Git
       vim-fugitive
       lazygit-nvim
-      
+
       # Parsing/Highlighting
       nvim-treesitter.withAllGrammars
       todo-comments-nvim
       vim-illuminate
+      vim-better-whitespace
 
       # LSP
       lsp-zero-nvim

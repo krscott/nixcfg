@@ -51,7 +51,12 @@
     };
     eza.enable = true;
     fd.enable = true;
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      defaultOptions = [
+        "--multi"
+      ];
+    };
     htop.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;

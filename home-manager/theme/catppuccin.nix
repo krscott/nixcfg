@@ -89,6 +89,22 @@ in
     };
   };
 
+  programs.fzf.colors = {
+    "bg+" = color.surface0;
+    # "bg" = color.base;
+    "spinner" = color.rosewater;
+    "hl" = color.red;
+    "fg" = color.text;
+    "header" = color.red;
+    "info" = color.mauve;
+    "pointer" = color.rosewater;
+    "marker" = color.lavender;
+    "fg+" = color.text;
+    "prompt" = color.mauve;
+    "hl+" = color.red;
+    "selected-bg" = color.surface1;
+  };
+
   home.packages = with pkgs; [
     vivid
   ];

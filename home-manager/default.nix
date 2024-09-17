@@ -7,6 +7,7 @@
 
     ./theme/catppuccin.nix
 
+    ./fonts
     ./git
     ./kitty
     ./nvim

@@ -4,13 +4,12 @@ let
 in
 {
   imports = [
-    ../nerdfont
     ../../lib/nixgl.nix
   ];
 
   options.krs.kitty = {
     enable = krslib.mkEnableOptionFalse "kitty";
-    # Font must also be added to krs.nerdfonts.fonts in nerdfont.nix
+    # Font must also be added to krs.fonts.nerdfonts in fonts.nix
     # fontName = krslib.mkStrOption "Font Name" "FantasqueSansM Nerd Font";
     fontName = krslib.mkStrOption "Font Name" "Iosevka Nerd Font";
     fontSize = krslib.mkIntOption "Font Size" 16;

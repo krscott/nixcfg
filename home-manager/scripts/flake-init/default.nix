@@ -12,11 +12,17 @@ let
 
     ${cp} ${flake-template} flake.nix
     echo "use flake . --impure" >> .envrc && ${direnv} allow
+
+    cat <<EOF >> .gitignore
+
+    .direnv/
+    .envrc
+    EOF
   '';
 in {
-  home.packages = [ 
+  home.packages = [
     pkgs.direnv
     pkgs.nix-direnv
-    flake-init 
+    flake-init
   ];
 }

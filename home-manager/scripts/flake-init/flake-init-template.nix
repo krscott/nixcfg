@@ -2,7 +2,7 @@
 # Kris Scott
 #
 # How to use:
-# 1. Update description and binName
+# 1. Update description and pname
 # 2. Uncomment commented code lines and update as needed
 # 3. Delete this how-to comment
 
@@ -15,11 +15,11 @@
 
   outputs = { self, nixpkgs }:
     let
-      binName = "my-prog";
+      pname = "my-prog";
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = function:
         nixpkgs.lib.genAttrs supportedSystems (system:
-          function { 
+          function {
             inherit system;
             pkgs = import nixpkgs { inherit system; };
           }
@@ -28,16 +28,19 @@
       packages = forAllSystems ({ pkgs, ... }:
         {
           default = pkgs.clangStdenv.mkDerivation {
-            name = binName;
+            inherit pname;
+            version = "0.1.0";
             src = ./.;
 
-            # buildInputs = with pkgs; [
-            #   cairo
+            # nativeBuildInputs = with pkgs; [
             #   cmake
             #   meson
             #   ninja
             #   pkg-config
+            #   clang-tools
             # ];
+
+            # buildInputs = [ ];
 
             # configurePhase = ''
             #   meson build
@@ -52,7 +55,7 @@
 
             # installPhase = ''
             #   mkdir -p $out/bin
-            #   cp build/src/${binName} $out/bin
+            #   cp build/src/${pname} $out/bin
             # '';
           };
         }
@@ -61,7 +64,7 @@
       apps = forAllSystems ({ system, ... }: {
         default = {
           type = "app";
-          program = "${self.packages.${system}.default}/bin/${binName}";
+          program = "${self.packages.${system}.default}/bin/${pname}";
         };
       });
 
@@ -70,7 +73,7 @@
       #     llvm = pkgs.llvmPackages_latest;
       #   in {
       #     default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
-      #       packages = with pkgs; self.packages.${system}.default.buildInputs ++ [
+      #       packages = with pkgs; self.packages.${system}.default.nativeBuildInputs ++ [
       #         # debugger
       #         llvm.lldb
       #         gdb

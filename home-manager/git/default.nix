@@ -24,6 +24,7 @@
         k = "!gitk --date-order";
         ka = "!gitk --all --date-order";
         l = "!lazygit";
+        cr = "clone --recursive";
       };
     };
 

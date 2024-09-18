@@ -2,7 +2,7 @@
 {
   options = {
     krs.fonts.nerdfonts = lib.mkOption {
-      default = [ "JetBrainsMono" "Iosevka" "FantasqueSansMono" ];
+      default = [ "JetBrainsMono" "Iosevka" "FantasqueSansMono" "DroidSansMono" ];
       description = "Enabled Nerd Fonts";
     };
   };

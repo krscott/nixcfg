@@ -25,6 +25,7 @@
         ka = "!gitk --all --date-order";
         l = "!lazygit";
         cr = "clone --recursive";
+        smu = "submodule update --recursive --init";
       };
     };
 

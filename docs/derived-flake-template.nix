@@ -55,7 +55,7 @@
       homeConfigurations = {
         "kscott@work-compy" = mkHome {
           username = "kscott";
-          system = "x86_64-linux"; 
+          system = "x86_64-linux";
           modules = [
             (import "${personal-config}/hosts/work-la-ubuntu/home.nix")
             ./users/kscott.nix

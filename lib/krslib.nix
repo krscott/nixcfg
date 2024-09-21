@@ -24,7 +24,7 @@
     type = lib.types.int;
   };
 
-  mkAppShortcut = { pkgs, name, exec, icon, ... }: 
+  mkAppShortcut = { pkgs, name, exec, icon, ... }:
     let
       item = pkgs.makeDesktopItem {
         inherit name exec icon;

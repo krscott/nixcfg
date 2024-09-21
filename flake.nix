@@ -44,7 +44,7 @@
       homeConfigurations = {
         "kris@ubuntu-nix.styx" = mkHome {
           username = "kris";
-          system = "x86_64-linux"; 
+          system = "x86_64-linux";
           modules = [
             ./hosts/styx/styx-home.nix
             ./home-manager
@@ -57,7 +57,7 @@
 
         "kris@galatea" = mkHome {
           username = "kris";
-          system = "x86_64-linux"; 
+          system = "x86_64-linux";
           modules = [
             ./home-manager
             ./users/kris.nix
@@ -69,7 +69,7 @@
 
         "clear" = mkHome {
           username = "kris";
-          system = "x86_64-linux"; 
+          system = "x86_64-linux";
           modules = [
             ./home-manager/core.nix
           ];

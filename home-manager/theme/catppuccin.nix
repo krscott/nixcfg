@@ -32,8 +32,8 @@ let
   };
 in
 {
-  programs.kitty.theme = "Catppuccin-Mocha";
-  
+  programs.kitty.themeFile = "Catppuccin-Mocha";
+
   programs.neovim.plugins = [
     pkgs.vimPlugins.catppuccin-nvim
   ];
@@ -51,7 +51,7 @@ in
       white = color.text;
       bright-black = color.subtext0;
       bright-red = color.pink;
-      bright-green = color.teal; 
+      bright-green = color.teal;
       bright-yellow = color.peach;
       bright-blue = color.sapphire;
       bright-purple = color.flamingo;

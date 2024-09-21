@@ -1,5 +1,4 @@
 { ... }:
-
 {
   programs.starship = {
     enable = true;
@@ -19,6 +18,12 @@
         format = "[$symbol$branch(:$remote_branch)]($style) ";
         style = "bright-black";
         symbol = "";
+      };
+      git_status = {
+        ahead = "⇡ ";
+        behind = "⇣ ";
+        diverged = "⇕ ";
+        deleted = "✘ ";
       };
       package = {
         format = "[$symbol$version]($style) ";

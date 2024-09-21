@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  # TODO: Why did I buildVimPlugin instead of using vimPlugins.nvim-nio ?
   nvim-nio = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-nio";
     src = pkgs.fetchFromGitHub {

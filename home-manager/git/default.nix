@@ -13,6 +13,14 @@
         init = {
           defaultBranch = "main";
         };
+        core = let
+          excludesFile = builtins.toFile "git_excludes" ''
+            .direnv/
+            .envrc
+          '';
+        in {
+          excludesFile = "${excludesFile}";
+        };
       };
       aliases = {
         s = "status -sb";

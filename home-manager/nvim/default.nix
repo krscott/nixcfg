@@ -21,6 +21,9 @@ in
     plugins = with pkgs.vimPlugins; [
       vim-sensible
 
+      # AI
+      codeium-nvim
+
       # Nav/UI
       harpoon
       telescope-nvim
@@ -77,6 +80,7 @@ in
     ];
 
     extraPackages = with pkgs; [
+      codeium
       tree-sitter
       nodejs
 

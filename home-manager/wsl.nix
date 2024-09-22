@@ -11,10 +11,17 @@ in
   config = lib.mkIf config.krs.wsl.enable {
     home.packages = with pkgs; [
       nautilus
+      # wslu
+      xdg-utils
     ];
 
     home.shellAliases = {
       winhome = "cd ${config.krs.wsl.home}";
+    };
+
+    home.sessionVariables = {
+      # BROWSER = "wslview";
+      # BROWSER = "/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe";
     };
   };
 }

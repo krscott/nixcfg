@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
   direnv = "${pkgs.direnv}/bin/direnv";
   cp = "cp --no-preserve=mode,ownership";
@@ -13,16 +13,18 @@ let
     ${cp} ${flake-template} flake.nix
     echo "use flake . --impure" >> .envrc && ${direnv} allow
 
-    cat <<EOF >> .gitignore
-
-    .direnv/
-    .envrc
-    EOF
+    # (These files are already added to global git excludeFile in this config)
+    # cat <<EOF >> .gitignore
+    #
+    # .direnv/
+    # .envrc
+    # EOF
   '';
 in {
-  home.packages = [
-    pkgs.direnv
-    pkgs.nix-direnv
-    flake-init
-  ];
+
+  config = lib.mkIf config.programs.direnv.enable {
+    home.packages = [
+      flake-init
+    ];
+  };
 }
